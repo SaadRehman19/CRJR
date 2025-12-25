@@ -1,6 +1,10 @@
+import brandInnovationIcon from '../../assets/brand_innovation.svg';
+import marketplaceMasteryIcon from '../../assets/marketplace_mystery.svg';
+import operationalExcellenceIcon from '../../assets/operational_excellence.svg';
+
 // Ecosystem pillars data
 const ecosystemPillars = [
-  
+
   {
     title: 'Brand Innovation',
     description: 'Building proprietary brands from concept to market leadership using the proven WINNING Strategy framework.',
@@ -9,6 +13,7 @@ const ecosystemPillars = [
       { value: '4', label: 'Owned Brands' },
     ],
     variant: 'light', // Gradient white background
+    icon: brandInnovationIcon,
   },
   {
     title: 'Marketplace Mastery',
@@ -18,6 +23,7 @@ const ecosystemPillars = [
       { value: '3', label: 'Platforms' },
     ],
     variant: 'dark', // Dark navy background
+    icon: marketplaceMasteryIcon,
   },
   {
     title: 'Operational Excellence',
@@ -27,12 +33,13 @@ const ecosystemPillars = [
       { value: '24/7', label: 'Operations' },
     ],
     variant: 'light', // Gradient white background
+    icon: operationalExcellenceIcon,
   },
 ];
 
-const EcosystemCard = ({ title, description, stats, variant }) => {
+const EcosystemCard = ({ title, description, stats, variant, icon }) => {
   const isDark = variant === 'dark';
-  
+
   return (
     <div
       className={`rounded-[24px] p-6 flex flex-col h-full ${
@@ -47,15 +54,13 @@ const EcosystemCard = ({ title, description, stats, variant }) => {
             }
       }
     >
-      {/* Icon placeholder */}
+      {/* Icon */}
       <div
         className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-          isDark ? 'bg-white/20' : 'bg-[#102A43]/10'
+          isDark ? 'bg-white/20' : 'bg-[#e5e7eb]'
         }`}
       >
-        <svg className={`w-6 h-6 ${isDark ? 'text-white' : 'text-[#102A43]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
+        <img src={icon} alt="" className="w-6 h-6" />
       </div>
 
       {/* Title */}
@@ -72,7 +77,15 @@ const EcosystemCard = ({ title, description, stats, variant }) => {
       <div className="flex gap-6">
         {stats.map((stat, index) => (
           <div key={index}>
-            <p className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-[#1E40AF]'}`}>
+            <p
+              className={`text-2xl font-bold ${isDark ? 'text-white' : ''}`}
+              style={!isDark ? {
+                background: 'linear-gradient(180deg, #1B9DD9 0%, #063482 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              } : {}}
+            >
               {stat.value}
             </p>
             <p className={`text-xs ${isDark ? 'text-white/60' : 'text-[#475569]'}`}>
@@ -109,6 +122,7 @@ const CRJREcosystem = () => {
               description={pillar.description}
               stats={pillar.stats}
               variant={pillar.variant}
+              icon={pillar.icon}
             />
           ))}
         </div>

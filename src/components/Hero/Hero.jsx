@@ -22,10 +22,10 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-[80px] py-[96px]">
+      <div className="max-w-[1440px] mx-auto px-[80px] pt-[20px] pb-[96px]">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Left Content */}
-          <div className="w-[568px] pt-[80px]">
+          <div className="w-[568px]">
             <HeroContent />
           </div>
 

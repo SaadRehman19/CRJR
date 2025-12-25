@@ -76,7 +76,7 @@ const ResultCard = ({ icon, value, label }) => (
 );
 
 const OpportunityItem = ({ title, description, icon }) => (
-  <div className="flex items-start gap-4 rounded-2xl bg-white/75 backdrop-blur-sm px-5 py-4 shadow-[0_14px_35px_rgba(15,23,42,0.08)] border border-white/80">
+  <div className="flex items-center gap-4 rounded-2xl bg-white/75 backdrop-blur-sm px-6 py-6 shadow-[0_14px_35px_rgba(15,23,42,0.08)] border border-white/80">
     <div className="flex-shrink-0">
       <div className="w-11 h-11 rounded-2xl bg-[#EFF6FF] flex items-center justify-center">
         <img src={icon} alt="" className="w-6 h-6" />
@@ -119,18 +119,18 @@ const DocumentedSuccess = () => {
         </div>
 
         {/* Bottom Content */}
-        <div className="flex flex-col lg:flex-row items-stretch gap-10 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-start gap-1 lg:gap-16">
           {/* Left - Copy & Opportunities */}
-          <div className="flex-1 max-w-xl">
+          <div className="flex-1 max-w-xl self-start">
             <h3 className="text-[24px] md:text-[28px] lg:text-[30px] font-bold text-[#0F172A] leading-[1.25] mb-3">
               Turning Opportunities Into Revenue
             </h3>
-            <p className="text-sm md:text-base lg:text-lg text-[#64748B] leading-relaxed mb-8 max-w-md">
+            <p className="text-sm md:text-base lg:text-lg text-[#64748B] leading-relaxed mb-12 max-w-md">
               My approach transforms business challenges into measurable growth through proven
               methodologies and strategic execution.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-5">
               {opportunities.map((item) => (
                 <OpportunityItem
                   key={item.id}

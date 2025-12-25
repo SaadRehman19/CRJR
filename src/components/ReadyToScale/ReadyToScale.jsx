@@ -27,7 +27,7 @@ const ReadyToScale = () => {
 
           {/* Secondary Button */}
           <a
-            href="#"
+            href="https://linkedin.com/in/cashrileyjr"
             className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0f172a] rounded-[30px] font-bold text-[16px] border-2 border-[#e5e7eb] hover:bg-gray-50 transition-colors"
           >
             <img src={linkedinIcon} alt="" className="w-5 h-5" />

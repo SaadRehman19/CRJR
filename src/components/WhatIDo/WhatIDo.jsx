@@ -45,7 +45,7 @@ const services = [
 const ServiceIcon = ({ icon }) => {
   return (
     <div className="w-16 h-16 bg-[#102a43] rounded-[16px] flex items-center justify-center">
-      <img src={icon} alt="" className="w-50 h-50" />
+      <img src={icon} alt="" className="w-11 h-11" />
     </div>
   );
 };
@@ -53,16 +53,16 @@ const ServiceIcon = ({ icon }) => {
 const ServiceCard = ({ title, description, icon, graphic }) => {
   return (
     <div
-      className="p-8 rounded-[24px] border border-[#f3f4f6] shadow-[0px_4px_6px_0px_rgba(0,0,0,0.1),0px_10px_15px_0px_rgba(0,0,0,0.1)]"
+      className="p-8 rounded-[24px] border border-[#f3f4f6] shadow-[0px_4px_6px_0px_rgba(0,0,0,0.1),0px_10px_15px_0px_rgba(0,0,0,0.1)] flex flex-col"
       style={{
         background: 'linear-gradient(145.429deg, rgba(255, 255, 255, 1) 0%, rgba(249, 250, 251, 1) 70.711%)',
       }}
     >
       <ServiceIcon icon={icon} />
-      <h3 className="mt-8 text-[20px] font-bold text-[#0a0e27] leading-[32px]">{title}</h3>
+      <h3 className="mt-6 text-[20px] font-bold text-[#0a0e27] leading-[28px]">{title}</h3>
       <p className="mt-3 text-[14px] text-[#4b5563] leading-[20px]">{description}</p>
-      <div className="mt-6 flex justify-center">
-        <img src={graphic} alt="" className="w-full max-w-[250px]" />
+      <div className="mt-8 flex items-center justify-center h-[160px]">
+        <img src={graphic} alt="" className="w-auto  max-w-full object-contain" />
       </div>
     </div>
   );

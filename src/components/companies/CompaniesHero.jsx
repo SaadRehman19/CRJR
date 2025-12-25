@@ -5,7 +5,7 @@ import crjrPartnersLogo from '../../assets/crjr-partners-logo.png';
 
 const CompaniesHero = () => {
   return (
-    <section className="relative w-full py-24 px-20 overflow-hidden bg-[#f8fafc]">
+    <section className="relative w-full pt-[20px] pb-[96px] px-20 overflow-hidden bg-[#f8fafc]">
       {/* Background decorations */}
       <div className="absolute top-[-80px] right-[1136px] w-[384px] h-[384px] bg-[#eff6ff] opacity-50 rounded-full -z-10"></div>
       <div className="absolute top-[416px] right-[-110px] w-[341px] h-[323px] opacity-20 -z-10">

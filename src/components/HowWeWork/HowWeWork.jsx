@@ -91,8 +91,17 @@ const StepCard = ({ number, title, description, goal }) => {
 
 const HowWeWork = () => {
   return (
-    <section className="w-full bg-white py-24 px-20">
-      <div className="max-w-[1216px] mx-auto">
+    <section
+      className="w-full py-24 px-20 relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 50%, #ffffff 100%)'
+      }}
+    >
+      {/* Decorative gradient orbs */}
+      <div className="absolute top-[-100px] right-[-100px] w-[500px] h-[500px] rounded-full bg-[#bae6fd] opacity-30 blur-3xl"></div>
+      <div className="absolute bottom-[-100px] left-[-100px] w-[400px] h-[400px] rounded-full bg-[#dbeafe] opacity-40 blur-3xl"></div>
+
+      <div className="max-w-[1216px] mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           {/* Badge */}

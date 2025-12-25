@@ -6,8 +6,8 @@ const contactMethods = [
   {
     id: 1,
     label: 'Email',
-    description: 'Contact form available below',
-    value: null,
+    description: '',
+    value: 'info@crjrventures.com',
     type: 'email',
     url: null,
   },

@@ -52,10 +52,15 @@ const ProfileStatsCard = () => (
 
 const WorkWithMeHero = () => {
   return (
-    <section className="relative w-full py-16 md:py-24 px-6 lg:px-20 overflow-hidden bg-white">
-      {/* Background decoration */}
-      <div className="absolute -top-32 right-[-120px] w-[420px] h-[420px] bg-blue-100/70 rounded-full blur-3xl -z-10" />
-      <div className="absolute top-20 left-[-100px] w-[350px] h-[350px] bg-blue-100/50 rounded-full blur-3xl -z-10" />
+    <section
+      className="relative w-full pt-[25px] pb-[36px] px-6 lg:px-20 overflow-hidden"
+      style={{
+        background: 'linear-gradient(120deg, #e0f2fe 0%, #f0f9ff 30%, #ffffff 70%)'
+      }}
+    >
+      {/* Background decoration - decorative orbs */}
+      <div className="absolute top-[-100px] right-[-100px] w-[500px] h-[500px] rounded-full bg-[#bae6fd] opacity-30 blur-3xl -z-10"></div>
+      <div className="absolute bottom-[-100px] left-[-100px] w-[400px] h-[400px] rounded-full bg-[#dbeafe] opacity-40 blur-3xl -z-10"></div>
 
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">

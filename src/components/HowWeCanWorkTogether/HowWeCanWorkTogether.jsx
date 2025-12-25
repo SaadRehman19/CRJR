@@ -1,4 +1,4 @@
-import brandIcon from '../../assets/brand.svg';
+import brandIcon from '../../assets/brand_advisory.svg';
 import amazonConsultingIcon from '../../assets/amazon_consulting.svg';
 import activeCompaniesIcon from '../../assets/active_companies.svg';
 import productDevelopmentIcon from '../../assets/product_Development.svg';

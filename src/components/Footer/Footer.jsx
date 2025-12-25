@@ -66,7 +66,7 @@ const Footer = () => {
             <h4 className="text-[14px] font-semibold text-[#0f172a] mb-4">Follow the Journey</h4>
             <div className="flex items-center gap-4">
               <a
-                href="#"
+                href="https://linkedin.com/in/cashrileyjr"
                 className="text-[#475569] hover:text-[#0f172a] transition-colors"
                 aria-label="LinkedIn"
               >
@@ -80,7 +80,7 @@ const Footer = () => {
                 <TwitterIcon />
               </a>
               <a
-                href="#"
+                href="mailto:cashrileyjr@gmail.com"
                 className="text-[#475569] hover:text-[#0f172a] transition-colors"
                 aria-label="Email"
               >
@@ -93,7 +93,7 @@ const Footer = () => {
         {/* Bottom - Copyright */}
         <div className="mt-12 pt-8 border-t border-[#e5e7eb]">
           <p className="text-[14px] text-[#94a3b8] text-center">
-            © 2024 CRJR Ventures. All rights reserved.
+            © 2025 CRJR Ventures. All rights reserved.
           </p>
         </div>
       </div>
