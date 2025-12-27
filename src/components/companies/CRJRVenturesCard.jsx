@@ -4,6 +4,7 @@ import iconDocumentedResults from '../../assets/icon-documented-results.svg';
 import iconClarityBuild from '../../assets/icon-clarity-build.svg';
 import iconPathwayFounders from '../../assets/icon-pathway-founders.svg';
 import Button from '../ui/Button';
+import { Link } from 'react-router-dom';
 
 // Ecosystem components
 const ecosystemComponents = [
@@ -119,9 +120,12 @@ const CRJRVenturesCard = () => {
                 Explore partnership opportunities and strategic consulting engagements.
               </p>
             </div>
+          <Link to="/work-with-me#contact-form" className="hidden md:block">
+
              <Button variant="primary">
               Get Started
             </Button>
+            </Link>
           </div>
         </div>
       </div>

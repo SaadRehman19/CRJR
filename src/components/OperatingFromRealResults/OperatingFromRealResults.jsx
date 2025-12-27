@@ -69,12 +69,12 @@ const CapabilityItem = ({ title, description }) => (
 );
 
 const IndustryRow = ({ label, progress, icon }) => (
-  <div className="bg-white/5 rounded-[14px] px-4 py-3 flex flex-col gap-2">
-    <div className="flex items-center justify-between text-sm text-white">
-      <span className="font-medium">{label}</span>
+  <div className="bg-white/8 rounded-[14px] px-4 py-3 flex flex-col gap-2">
+    <div className="flex items-center justify-between text-white">
+      <span className="text-[18px] leading-[28px] font-semibold tracking-normal">{label}</span>
       {icon && <img src={icon} alt="" className="w-5 h-5" />}
     </div>
-    <div className="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden">
+    <div className="w-full h-1.5 rounded-full bg-slate-600 overflow-hidden">
       <div
         className="h-full rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#38BDF8]"
         style={{ width: `${progress}%` }}
@@ -95,7 +95,7 @@ const OperatingFromRealResults = () => {
             </h2>
             <p className="text-sm md:text-base lg:text-lg text-[#475569] leading-relaxed mb-8">
               Everything I recommend comes from success across multiple categories. These
-              aren&apos;t hypothetical playbooks  they&apos;re brands I&apos;ve built, funded, and
+              aren&apos;t hypothetical playbooks — they&apos;re brands I&apos;ve built, funded, and
               scaled.
             </p>
 
@@ -113,10 +113,10 @@ const OperatingFromRealResults = () => {
           {/* Right Side - Expertise Card */}
           <div className="flex-1 w-full flex justify-center lg:justify-end">
             <div
-              className="w-full max-w-md bg-[#0F172A] rounded-[24px] px-6 py-6 md:px-8 md:py-8 shadow-2xl"
+              className="w-full max-w-md bg-[#102A43] rounded-[24px] px-6 py-6 md:px-8 md:py-8 shadow-2xl"
               style={{ boxShadow: '0px 24px 60px rgba(15, 23, 42, 0.65)' }}
             >
-              <h3 className="text-white text-lg md:text-xl font-semibold mb-5">
+              <h3 className="text-white text-[20px] leading-[20px] font-bold tracking-normal mb-5">
                 Expertise Across Industries
               </h3>
 

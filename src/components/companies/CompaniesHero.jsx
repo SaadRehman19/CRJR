@@ -2,6 +2,7 @@ import Button from '../ui/Button';
 import companiesHeroImage from '../../assets/My_companies.png';
 import mcmLogo from '../../assets/mcm-logo.png';
 import crjrPartnersLogo from '../../assets/crjr-partners-logo.png';
+import { Link } from 'react-router-dom';
 
 const CompaniesHero = () => {
   return (
@@ -43,12 +44,14 @@ const CompaniesHero = () => {
 
             {/* CTA Button */}
             <div className="mb-10">
+          <Link to="/work-with-me#contact-form" className="hidden md:block">
               <Button variant="primary">
                 Start Your Growth Assessment
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Button>
+              </Link>
             </div>
 
           

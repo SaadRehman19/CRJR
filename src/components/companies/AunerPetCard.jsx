@@ -50,7 +50,7 @@ const AunerPetCard = () => {
         <div className="bg-[#102A43] p-8 lg:w-[45%] flex flex-col">
           {/* Logo Box */}
           <div className="w-20 h-20 rounded-2xl flex items-center justify-center mb-5 bg-white overflow-hidden">
-            <img src={aunerPetLogo} alt="AUNER Pet Inc. Logo" className="w-16 h-16 object-contain" />
+            <img src={aunerPetLogo} alt="AUNER Pet Inc. Logo" className="w-25 h-25" />
           </div>
 
           {/* Company Name */}

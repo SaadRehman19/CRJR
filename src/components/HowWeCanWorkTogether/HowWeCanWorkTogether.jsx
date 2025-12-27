@@ -4,6 +4,9 @@ import activeCompaniesIcon from '../../assets/active_companies.svg';
 import productDevelopmentIcon from '../../assets/product_Development.svg';
 import retailIcon from '../../assets/retail_distrubtion.svg';
 import revenueIcon from '../../assets/revenue.svg';
+import greenTick from '../../assets/green_tick.svg';
+import blueTick from '../../assets/blue_tick.svg';
+import orangeTick from '../../assets/orange_tick.svg';
 
 const services = [
   {
@@ -17,6 +20,7 @@ const services = [
       'Go-to-market planning',
     ],
     icon: brandIcon,
+    tickIcon: greenTick,
   },
   {
     id: 2,
@@ -29,6 +33,7 @@ const services = [
       'Brand registry & protection',
     ],
     icon: amazonConsultingIcon,
+    tickIcon: blueTick,
   },
   {
     id: 3,
@@ -41,6 +46,7 @@ const services = [
       'Post-launch optimization',
     ],
     icon: activeCompaniesIcon,
+    tickIcon: orangeTick,
   },
   {
     id: 4,
@@ -53,6 +59,7 @@ const services = [
       'Quality assurance processes',
     ],
     icon: productDevelopmentIcon,
+    tickIcon: greenTick,
   },
   {
     id: 5,
@@ -65,6 +72,7 @@ const services = [
       'Inventory management systems',
     ],
     icon: retailIcon,
+    tickIcon: blueTick,
   },
   {
     id: 6,
@@ -77,6 +85,7 @@ const services = [
       'Team structure & hiring strategy',
     ],
     icon: revenueIcon,
+    tickIcon: orangeTick,
   },
 ];
 
@@ -84,26 +93,13 @@ const ServiceIcon = ({ icon }) => {
   return <img src={icon} alt="" className="w-6 h-6" />;
 };
 
-const CheckBullet = () => (
-  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#E0F2FE]">
-    <svg
-      className="h-3.5 w-3.5"
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M4 8.5L6.5 11L12 5.5"
-        stroke="#0EA5E9"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+const CheckBullet = ({ tickIcon }) => (
+  <span className="flex h-6 w-6 items-center justify-center">
+    <img src={tickIcon} alt="" className="h-3.5 w-3.5" />
   </span>
 );
 
-const ServiceCard = ({ title, description, bullets, icon }) => (
+const ServiceCard = ({ title, description, bullets, icon, tickIcon }) => (
   <div
     className="bg-white rounded-[18px] px-6 py-7 border border-[#E5E7EB] flex flex-col h-full"
     style={{ boxShadow: '0px 18px 45px rgba(15, 23, 42, 0.08)' }}
@@ -116,7 +112,7 @@ const ServiceCard = ({ title, description, bullets, icon }) => (
     <ul className="space-y-2">
       {bullets.map((item) => (
         <li key={item} className="flex items-start gap-2 text-sm text-[#475569]">
-          <CheckBullet />
+          <CheckBullet tickIcon={tickIcon} />
           <span className="mt-0.5">{item}</span>
         </li>
       ))}
@@ -145,6 +141,7 @@ const HowWeCanWorkTogether = () => {
               description={service.description}
               bullets={service.bullets}
               icon={service.icon}
+              tickIcon={service.tickIcon}
             />
           ))}
         </div>

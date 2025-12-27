@@ -41,9 +41,9 @@ const Navbar = () => {
         </div>
 
         {/* CTA Button */}
-        <Link to="/work-with-me" className="hidden md:block">
+        <Link to="/work-with-me#contact-form" className="hidden md:block">
           <Button variant="primary">
-            Work With Me
+            Contact Us
           </Button>
         </Link>
 

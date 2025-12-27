@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { WorkWithMeHero } from '../components/WorkWithMeHero';
 import { DocumentedSuccess } from '../components/DocumentedSuccess';
 import { WhoIAm } from '../components/WhoIAm';
@@ -9,6 +11,23 @@ import { ContactSection } from '../components/ContactSection';
 import { ReadyToScale } from '../components/ReadyToScale';
 
 const WorkWithMePage = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === '#contact-form') {
+      // Small delay to ensure the page has fully rendered
+      setTimeout(() => {
+        const element = document.getElementById('contact-form');
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   return (
     <>
       <WorkWithMeHero />

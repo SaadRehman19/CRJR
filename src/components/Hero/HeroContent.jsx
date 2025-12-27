@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 import HeroBadge from './HeroBadge';
 import PartnerLogos from './PartnerLogos';
@@ -34,15 +35,19 @@ const HeroContent = () => {
       
       {/* CTA Buttons */}
       <div className="mt-8 flex flex-wrap gap-4">
+          <Link to="/work-with-me#contact-form" className="hidden md:block">
         <Button variant="primary">
           Start Your Growth Assessment
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </Button>
+        </Link>
+          <Link to="/work-with-me#contact-form" className="hidden md:block">
         <Button variant="outline">
           See If You Qualify
         </Button>
+        </Link>
       </div>
       
       {/* Partner Logos */}

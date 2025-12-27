@@ -1,15 +1,16 @@
 import Button from '../ui/Button';
 import avatarImage from '../../assets/who-i-am-main.png';
+import { Link } from 'react-router-dom';
 
 const StatBar = ({ label, value, progress }) => (
   <div className="space-y-1">
     <div className="flex items-center justify-between text-[11px] md:text-xs text-[#64748B]">
       <span>{label}</span>
-      <span className="font-semibold text-[#0F172A]">{value}</span>
+      <span className="font-semibold text-[#0A0E27]">{value}</span>
     </div>
     <div className="w-full h-1.5 bg-[#E5E7EB] rounded-full overflow-hidden">
       <div
-        className="h-full rounded-full bg-gradient-to-r from-[#063482] to-[#0EA5E9]"
+        className="h-full rounded-full bg-gradient-to-r from-[#0F172A] to-[#0F172A]"
         style={{ width: `${progress}%` }}
       />
     </div>
@@ -43,9 +44,9 @@ const ProfileStatsCard = () => (
 
     {/* Stats */}
     <div className="space-y-4">
-      <StatBar label="Active Companies" value="6+" progress={65} />
+      <StatBar label="Active Companies" value="6+" progress={100} />
       <StatBar label="Client Revenue Generated" value="$40M+" progress={90} />
-      <StatBar label="Years of Experience" value="10+" progress={80} />
+      <StatBar label="Years of Experience" value="10+" progress={92} />
     </div>
   </div>
 );
@@ -94,6 +95,8 @@ const WorkWithMeHero = () => {
 
             {/* CTA Button */}
             <div className="mt-8">
+          <Link to="/work-with-me#contact-form" className="hidden md:block">
+
               <Button variant="primary">
                 Work with me
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -105,6 +108,7 @@ const WorkWithMeHero = () => {
                   />
                 </svg>
               </Button>
+              </Link>
             </div>
           </div>
 

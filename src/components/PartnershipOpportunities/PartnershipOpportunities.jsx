@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 const ArrowRightIcon = () => (
   <svg
     className="w-4 h-4"
@@ -24,6 +26,7 @@ const ArrowRightIcon = () => (
 );
 
 const PartnershipOpportunities = () => {
+  const navigate = useNavigate();
   return (
     <section className="w-full bg-white py-16 md:py-24 px-6 lg:px-20">
       <div className="max-w-[1216px] mx-auto">
@@ -45,7 +48,8 @@ const PartnershipOpportunities = () => {
 
           <button
             type="button"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-white text-[#063482] font-semibold text-sm md:text-base shadow-[0_14px_35px_rgba(15,23,42,0.35)] hover:bg-slate-50 transition-colors"
+            onClick={() => navigate('/companies')}
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-white text-[#063482] font-semibold text-sm md:text-base shadow-[0_14px_35px_rgba(15,23,42,0.35)] hover:bg-slate-50 hover:scale-105 hover:shadow-[0_20px_45px_rgba(15,23,42,0.45)] transition-all duration-300 cursor-pointer"
           >
             <span>Explore Partnerships</span>
             <ArrowRightIcon />

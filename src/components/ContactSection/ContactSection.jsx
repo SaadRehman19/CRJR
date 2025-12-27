@@ -88,7 +88,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="w-full bg-gradient-to-b from-[#F9FBFF] via-white to-[#E0F2FE] py-20 px-6 lg:px-20">
+    <section id="contact-form" className="w-full bg-gradient-to-b from-[#F9FBFF] via-white to-[#E0F2FE] py-20 px-6 lg:px-20">
       <div className="max-w-[1216px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         {/* Left: Intro + contact methods */}
         <div>
