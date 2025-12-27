@@ -154,7 +154,7 @@ const ContactSection = () => {
       // const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
       const serviceId='service_u13ip0t'
-      const templateId='template_70xts97'
+      const templateId='template_7oxts97'
 
 
       // Validate environment variables
