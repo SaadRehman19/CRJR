@@ -153,7 +153,7 @@ const ContactSection = () => {
       // const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       // const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
-      const serviceId='service_u13ipt0t'
+      const serviceId='service_u13ip0t'
       const templateId='template_70xts97'
 
 
