@@ -3,7 +3,7 @@ import HeroDashboard from './HeroDashboard';
 
 const Hero = () => {
   return (
-    <section className="relative w-full min-h-[1058px] bg-white overflow-hidden">
+    <section className="relative w-full min-h-screen md:min-h-[1058px] bg-white overflow-hidden">
       {/* Background decorations - Ellipses from Figma */}
       <div className="absolute top-[-80px] right-[1136px] w-[384px] h-[384px] bg-[#eff6ff] opacity-50 rounded-full -z-10"></div>
 
@@ -22,15 +22,15 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-[80px] pt-[20px] pb-[96px]">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 pt-[20px] pb-12 md:pb-24">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Left Content */}
-          <div className="w-[568px]">
+          <div className="w-full lg:w-[568px]">
             <HeroContent />
           </div>
 
           {/* Right Dashboard */}
-          <div className="flex-1 flex justify-end">
+          <div className="flex-1 flex justify-center lg:justify-end w-full">
             <HeroDashboard />
           </div>
         </div>

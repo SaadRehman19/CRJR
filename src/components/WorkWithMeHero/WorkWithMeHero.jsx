@@ -95,19 +95,18 @@ const WorkWithMeHero = () => {
 
             {/* CTA Button */}
             <div className="mt-8">
-          <Link to="/work-with-me#contact-form" className="hidden md:block">
-
-              <Button variant="primary">
-                Work with me
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Button>
+              <Link to="/work-with-me#contact-form" className="w-full sm:w-auto inline-block">
+                <Button variant="primary" className="w-full sm:w-auto">
+                  Work with me
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </Button>
               </Link>
             </div>
           </div>

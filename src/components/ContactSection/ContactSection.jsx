@@ -104,7 +104,8 @@ const ContactSection = () => {
   // Initialize EmailJS
   const initEmailJS = () => {
     // const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-      const publicKey='RxARhFOPmzrtwDD3t'
+      // const publicKey='RxARhFOPmzrtwDD3t'
+      const publicKey='9tG0gaCZeqsa0vjKD'
     if (publicKey) {
       emailjs.init(publicKey);
     }
@@ -152,8 +153,8 @@ const ContactSection = () => {
       // const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
       // const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
-      const serviceId='service_o3sfkee'
-      const templateId='template_6vaszof'
+      const serviceId='service_u13ipt0t'
+      const templateId='template_70xts97'
 
 
       // Validate environment variables

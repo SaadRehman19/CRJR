@@ -10,7 +10,7 @@ const HeroContent = () => {
       <HeroBadge />
       
       {/* Main Headline */}
-      <h1 className="mt-6 text-[72px] font-bold leading-[72px] tracking-[-2.3px]">
+      <h1 className="mt-6 text-[32px] sm:text-[48px] md:text-[64px] lg:text-[72px] font-bold leading-tight md:leading-[72px] tracking-[-2.3px]">
         <span className="block text-[#0f172a]">Building Brands.</span>
         <span className="block text-[#0f172a]">Scaling Companies.</span>
         <span className="block">
@@ -34,19 +34,19 @@ const HeroContent = () => {
       </p>
       
       {/* CTA Buttons */}
-      <div className="mt-8 flex flex-wrap gap-4">
-          <Link to="/work-with-me#contact-form" className="hidden md:block">
-        <Button variant="primary">
-          Start Your Growth Assessment
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </Button>
+      <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-4">
+        <Link to="/work-with-me#contact-form" className="w-full sm:w-auto">
+          <Button variant="primary" className="w-full sm:w-auto">
+            Start Your Growth Assessment
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Button>
         </Link>
-          <Link to="/work-with-me#contact-form" className="hidden md:block">
-        <Button variant="outline">
-          See If You Qualify
-        </Button>
+        <Link to="/work-with-me#contact-form" className="w-full sm:w-auto">
+          <Button variant="outline" className="w-full sm:w-auto">
+            See If You Qualify
+          </Button>
         </Link>
       </div>
       
