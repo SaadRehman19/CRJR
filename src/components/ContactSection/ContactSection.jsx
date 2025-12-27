@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import emailIcon from '../../assets/email.svg';
 import linkedinIcon from '../../assets/linkedin.svg';
 import instaIcon from '../../assets/insta.svg';
@@ -83,8 +85,135 @@ const PaperPlaneIcon = () => (
 );
 
 const ContactSection = () => {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    companyName: '',
+    serviceInterest: '',
+    message: '',
+    consent: false,
+  });
+
+  const [status, setStatus] = useState({
+    loading: false,
+    success: false,
+    error: false,
+    message: '',
+  });
+
+  // Initialize EmailJS
+  const initEmailJS = () => {
+    // const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const publicKey='RxARhFOPmzrtwDD3t'
+    if (publicKey) {
+      emailjs.init(publicKey);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validation
+    if (!formData.fullName || !formData.email || !formData.message) {
+      setStatus({
+        loading: false,
+        success: false,
+        error: true,
+        message: 'Please fill in all required fields.',
+      });
+      return;
+    }
+
+    if (!formData.consent) {
+      setStatus({
+        loading: false,
+        success: false,
+        error: true,
+        message: 'Please agree to the privacy policy.',
+      });
+      return;
+    }
+
+    setStatus({ loading: true, success: false, error: false, message: '' });
+
+    try {
+      // Initialize EmailJS
+      initEmailJS();
+
+      // EmailJS configuration
+      // const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      // const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+
+      const serviceId='service_o3sfkee'
+      const templateId='template_6vaszof'
+
+
+      // Validate environment variables
+      if (!serviceId || !templateId) {
+        throw new Error('EmailJS configuration is missing. Please check your .env file.');
+      }
+
+      console.log('Sending email with:', { serviceId, templateId });
+
+      // Template parameters
+      const templateParams = {
+        from_name: formData.fullName,
+        from_email: formData.email,
+        company_name: formData.companyName || 'Not provided',
+        service_interest: formData.serviceInterest || 'Not specified',
+        message: formData.message,
+      };
+
+      console.log('Template params:', templateParams);
+
+      // Send email using EmailJS
+      const response = await emailjs.send(serviceId, templateId, templateParams);
+
+      console.log('Email sent successfully:', response);
+
+      setStatus({
+        loading: false,
+        success: true,
+        error: false,
+        message: 'Message sent successfully! We\'ll get back to you soon.',
+      });
+
+      // Reset form
+      setFormData({
+        fullName: '',
+        email: '',
+        companyName: '',
+        serviceInterest: '',
+        message: '',
+        consent: false,
+      });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+
+      let errorMessage = 'Failed to send message. Please try again or email us directly.';
+
+      // Provide more specific error messages
+      if (error.text) {
+        errorMessage = `Error: ${error.text}`;
+      } else if (error.message) {
+        errorMessage = error.message;
+      }
+
+      setStatus({
+        loading: false,
+        success: false,
+        error: true,
+        message: errorMessage,
+      });
+    }
   };
 
   return (
@@ -154,11 +283,28 @@ const ContactSection = () => {
           >
             <h3 className="text-lg md:text-xl font-semibold text-[#0F172A] mb-4">Send a Message</h3>
             <form className="space-y-4" onSubmit={handleSubmit}>
+              {/* Status Messages */}
+              {status.message && (
+                <div
+                  className={`p-3 rounded-lg text-sm ${
+                    status.success
+                      ? 'bg-green-50 text-green-800 border border-green-200'
+                      : 'bg-red-50 text-red-800 border border-red-200'
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
+
               <div className="space-y-1.5">
                 <label className="text-xs font-medium text-[#0F172A]">Full Name *</label>
                 <input
                   type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
                   placeholder="Cash Riley, Jr."
+                  required
                   className="w-full rounded-lg border border-[#E2E8F0] px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-transparent"
                 />
               </div>
@@ -167,7 +313,11 @@ const ContactSection = () => {
                 <label className="text-xs font-medium text-[#0F172A]">Email Address *</label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="your@email.com"
+                  required
                   className="w-full rounded-lg border border-[#E2E8F0] px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-transparent"
                 />
               </div>
@@ -176,6 +326,9 @@ const ContactSection = () => {
                 <label className="text-xs font-medium text-[#0F172A]">Company Name</label>
                 <input
                   type="text"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleChange}
                   placeholder="Your Company"
                   className="w-full rounded-lg border border-[#E2E8F0] px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-transparent"
                 />
@@ -185,12 +338,12 @@ const ContactSection = () => {
                 <label className="text-xs font-medium text-[#0F172A]">Service Interest</label>
                 <div className="relative">
                   <select
+                    name="serviceInterest"
+                    value={formData.serviceInterest}
+                    onChange={handleChange}
                     className="w-full appearance-none rounded-lg border border-[#E2E8F0] px-3 py-2.5 text-sm text-[#0F172A] bg-white focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-transparent"
-                    defaultValue=""
                   >
-                    <option value="" disabled>
-                      Select a service
-                    </option>
+                    <option value="">Select a service</option>
                     <option value="brand-advisory">Brand Advisory</option>
                     <option value="amazon-consulting">Amazon Consulting</option>
                     <option value="growth-roadmap">Growth Roadmap</option>
@@ -204,8 +357,12 @@ const ContactSection = () => {
               <div className="space-y-1.5">
                 <label className="text-xs font-medium text-[#0F172A]">Message *</label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows={4}
                   placeholder="Tell us about your project and goals..."
+                  required
                   className="w-full rounded-lg border border-[#E2E8F0] px-3 py-2.5 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-transparent"
                 />
               </div>
@@ -213,7 +370,10 @@ const ContactSection = () => {
               <div className="flex items-start gap-2 pt-1">
                 <input
                   id="contact-consent"
+                  name="consent"
                   type="checkbox"
+                  checked={formData.consent}
+                  onChange={handleChange}
                   className="mt-1 h-4 w-4 rounded border-[#CBD5E1] text-[#0EA5E9] focus:ring-[#0EA5E9]"
                 />
                 <label htmlFor="contact-consent" className="text-[11px] leading-snug text-[#64748B]">
@@ -224,15 +384,20 @@ const ContactSection = () => {
 
               <button
                 type="submit"
-                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm md:text-base font-semibold text-white"
+                disabled={status.loading}
+                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm md:text-base font-semibold text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:brightness-110 active:scale-95 group cursor-pointer"
                 style={{
                   background:
                     'linear-gradient(264deg, rgba(27, 157, 217, 1) 0%, rgba(6, 52, 130, 1) 97%)',
                   boxShadow: '0px 18px 45px rgba(15, 23, 42, 0.3)',
                 }}
               >
-                <span>Send Message</span>
-                <PaperPlaneIcon />
+                <span>{status.loading ? 'Sending...' : 'Send Message'}</span>
+                {!status.loading && (
+                  <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                    <PaperPlaneIcon />
+                  </span>
+                )}
               </button>
             </form>
           </div>

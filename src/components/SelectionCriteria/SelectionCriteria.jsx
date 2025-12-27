@@ -2,6 +2,7 @@ import compellingProductIcon from '../../assets/compelling_product.svg';
 import operationalIcon from '../../assets/operational.svg';
 import financialCommitmentIcon from '../../assets/financial_commitment.svg';
 import foundersWithVisionIcon from '../../assets/founders_with_vision.svg';
+import { Link } from 'react-router-dom';
 
 const criteriaData = [
   {
@@ -89,12 +90,15 @@ const SelectionCriteria = () => {
             </p>
 
             {/* Button */}
+          <Link to="/work-with-me#contact-form" className="hidden md:block">
+            
             <button className="bg-white rounded-[30px] px-8 py-3 flex items-center gap-2 hover:bg-gray-50 transition-colors">
               <span className="text-[16px] font-bold text-[#0f172a]">Apply for Brand Evaluation</span>
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#0f172a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
+            </Link>
           </div>
 
           {/* Right Side - Funnel */}
