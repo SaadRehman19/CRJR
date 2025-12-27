@@ -1,6 +1,7 @@
 import Button from "../ui/Button";
 import growthPlanIcon from '../../assets/lets_build_growth_plan.svg';
 import linkedinIcon from '../../assets/linkedin.svg';
+import { Link } from 'react-router-dom';
 
 const ReadyToScale = () => {
   return (
@@ -20,10 +21,12 @@ const ReadyToScale = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           {/* Primary Button */}
+          <Link to="/work-with-me#contact-form" className="hidden md:block">
           <Button variant="primary">
             <img src={growthPlanIcon} alt="" className="w-5 h-5" />
             Let's Build Your Growth Plan
           </Button>
+          </Link>
 
           {/* Secondary Button */}
           <a
