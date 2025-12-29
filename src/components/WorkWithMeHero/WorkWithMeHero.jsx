@@ -1,6 +1,7 @@
 import Button from '../ui/Button';
 import avatarImage from '../../assets/who-i-am-main.png';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const StatBar = ({ label, value, progress }) => (
   <div className="space-y-1">
@@ -18,7 +19,10 @@ const StatBar = ({ label, value, progress }) => (
 );
 
 const ProfileStatsCard = () => (
-  <div
+  <motion.div
+    initial={{ opacity: 0, x: 50 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.8, delay: 0.4 }}
     className="bg-white rounded-2xl border border-[#E5E7EB] p-5 md:p-6 w-full"
     style={{ boxShadow: '0px 25px 50px rgba(15, 23, 42, 0.18)' }}
   >
@@ -48,7 +52,7 @@ const ProfileStatsCard = () => (
       <StatBar label="Client Revenue Generated" value="$40M+" progress={90} />
       <StatBar label="Years of Experience" value="10+" progress={92} />
     </div>
-  </div>
+  </motion.div>
 );
 
 const WorkWithMeHero = () => {
@@ -66,15 +70,41 @@ const WorkWithMeHero = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-16">
           {/* Left Side - Text Content */}
-          <div className="flex-1 max-w-xl">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.15,
+                  delayChildren: 0.1
+                }
+              }
+            }}
+            className="flex-1 max-w-xl"
+          >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#EFF6FF] rounded-full border border-[#BFDBFE]">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#EFF6FF] rounded-full border border-[#BFDBFE]"
+            >
               <span className="w-2 h-2 bg-[#063482] rounded-full" />
               <span className="text-sm font-medium text-[#486581]">CRJR Venture Partners</span>
-            </div>
+            </motion.div>
 
             {/* Heading */}
-            <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <motion.h1
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              className="mt-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+            >
               <span className="block text-[#000000]">Why Work</span>
               <span className="block mt-2">
                 <span className="bg-gradient-to-r from-[#063482] to-[#0EA5E9] bg-clip-text text-transparent">
@@ -85,16 +115,28 @@ const WorkWithMeHero = () => {
                   style={{ width: '30%' }}
                 />
               </span>
-            </h1>
+            </motion.h1>
 
             {/* Description */}
-            <p className="mt-6 text-base lg:text-lg text-[#475569] leading-relaxed">
+            <motion.p
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              className="mt-6 text-base lg:text-lg text-[#475569] leading-relaxed"
+            >
               Everything I do is built on documented success, not theory. I don&apos;t just consult —
               I build, own, and operate the companies behind the results.
-            </p>
+            </motion.p>
 
             {/* CTA Button */}
-            <div className="mt-8">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 }
+              }}
+              className="mt-8"
+            >
               <Link to="/work-with-me#contact-form" className="w-full sm:w-auto inline-block">
                 <Button variant="primary" className="w-full sm:w-auto">
                   Work with me
@@ -108,8 +150,8 @@ const WorkWithMeHero = () => {
                   </svg>
                 </Button>
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Side - Profile Stats Card */}
           <div className="flex-1 flex justify-center lg:justify-end w-full">

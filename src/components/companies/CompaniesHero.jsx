@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Button from '../ui/Button';
 import companiesHeroImage from '../../assets/My_companies.png';
 import mcmLogo from '../../assets/mcm-logo.png';
@@ -5,8 +6,28 @@ import crjrPartnersLogo from '../../assets/crjr-partners-logo.png';
 import { Link } from 'react-router-dom';
 
 const CompaniesHero = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
-    <section className="relative w-full pt-[20px] pb-[96px] px-20 overflow-hidden bg-[#f8fafc]">
+    <section className="relative w-full pt-[20px] pb-[96px] px-6 md:px-12 lg:px-20 overflow-hidden bg-[#f8fafc]">
       {/* Background decorations */}
       <div className="absolute top-[-80px] right-[1136px] w-[384px] h-[384px] bg-[#eff6ff] opacity-50 rounded-full -z-10"></div>
       <div className="absolute top-[416px] right-[-110px] w-[341px] h-[323px] opacity-20 -z-10">
@@ -16,34 +37,43 @@ const CompaniesHero = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
           {/* Left Content */}
-          <div className="flex-1 max-w-xl">
+          <motion.div
+            className="flex-1 max-w-xl"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             {/* Badge */}
-            <div className="inline-flex items-center gap-3 mb-6">
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-3 mb-6">
               <div className="w-2 h-2 rounded-full bg-[#063482]"></div>
               <span className="text-[14px] font-normal text-[#063482] tracking-[0.7px]">
                 CRJR Venture Partners
               </span>
-            </div>
+            </motion.div>
 
             {/* Main Headline */}
-            <h1 className="text-[72px] font-bold leading-[72px] tracking-[-2.3px] mb-2">
-              <span className="block text-[#0f172a]">Building & Scaling</span>
-              <span className="block text-[#063482]">Marketplace Empires</span>
+            <h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[72px] font-bold leading-tight lg:leading-[72px] tracking-[-2.3px] mb-2">
+              <motion.span variants={itemVariants} className="block text-[#0f172a]">
+                Building & Scaling
+              </motion.span>
+              <motion.span variants={itemVariants} className="block text-[#063482]">
+                Marketplace Empires
+              </motion.span>
             </h1>
 
             {/* Decorative Line */}
-            <div className="flex">
+            <motion.div variants={itemVariants} className="flex">
               <div className="mt-[6px] h-[5px] w-[192px] rounded-[9.6px] mb-6" style={{ backgroundColor: '#BFDBFE' }}></div>
-            </div>
+            </motion.div>
 
             {/* Description */}
-            <p className="text-[18px] text-[#475569] leading-[30px] mb-8">
+            <motion.p variants={itemVariants} className="text-[18px] text-[#475569] leading-[30px] mb-8">
               A proven ecosystem of companies generating over $40MM in revenue through strategic
               marketplace dominance, innovative brand building, and operational excellence.
-            </p>
+            </motion.p>
 
             {/* CTA Button */}
-            <div className="mb-10">
+            <motion.div variants={itemVariants} className="mb-10">
               <Link to="/work-with-me#contact-form" className="w-full sm:w-auto inline-block">
                 <Button variant="primary" className="w-full sm:w-auto">
                   Start Your Growth Assessment
@@ -52,13 +82,16 @@ const CompaniesHero = () => {
                   </svg>
                 </Button>
               </Link>
-            </div>
-
-          
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Side - Image Box */}
-          <div className="flex-1 relative flex justify-center lg:justify-end">
+          <motion.div
+            className="flex-1 relative flex justify-center lg:justify-end"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
             <div className="relative">
               {/* Blue glow behind image */}
               <div
@@ -88,7 +121,7 @@ const CompaniesHero = () => {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

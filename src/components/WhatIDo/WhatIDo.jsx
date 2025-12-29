@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import brandOwnershipIcon from '../../assets/brand-ownership-icon.svg';
 import amazonGrowthIcon from '../../assets/amazon-growth-icon.svg';
 import productDevelopmentIcon from '../../assets/product-development-icon.svg';
@@ -50,13 +51,18 @@ const ServiceIcon = ({ icon }) => {
   );
 };
 
-const ServiceCard = ({ title, description, icon, graphic }) => {
+const ServiceCard = ({ title, description, icon, graphic, index }) => {
   return (
-    <div
+    <motion.div
       className="p-8 rounded-[24px] border border-[#f3f4f6] shadow-[0px_4px_6px_0px_rgba(0,0,0,0.1),0px_10px_15px_0px_rgba(0,0,0,0.1)] flex flex-col"
       style={{
         background: 'linear-gradient(145.429deg, rgba(255, 255, 255, 1) 0%, rgba(249, 250, 251, 1) 70.711%)',
       }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -8, boxShadow: '0px 20px 40px rgba(0,0,0,0.15)' }}
     >
       <ServiceIcon icon={icon} />
       <h3 className="mt-6 text-[20px] font-bold text-[#0a0e27] leading-[28px]">{title}</h3>
@@ -64,7 +70,7 @@ const ServiceCard = ({ title, description, icon, graphic }) => {
       <div className="mt-8 flex items-center justify-center h-[160px]">
         <img src={graphic} alt="" className="w-auto  max-w-full object-contain" />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -95,9 +101,10 @@ const WhatIDo = () => {
 
         {/* Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <ServiceCard
               key={service.id}
+              index={index}
               title={service.title}
               description={service.description}
               icon={service.icon}

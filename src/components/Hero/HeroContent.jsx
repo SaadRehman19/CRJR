@@ -1,40 +1,72 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Button from '../ui/Button';
 import HeroBadge from './HeroBadge';
 import PartnerLogos from './PartnerLogos';
 
 const HeroContent = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
-    <div className="w-full">
+    <motion.div
+      className="w-full"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       {/* Badge */}
-      <HeroBadge />
-      
+      <motion.div variants={itemVariants}>
+        <HeroBadge />
+      </motion.div>
+
       {/* Main Headline */}
       <h1 className="mt-6 text-[32px] sm:text-[48px] md:text-[64px] lg:text-[72px] font-bold leading-tight md:leading-[72px] tracking-[-2.3px]">
-        <span className="block text-[#0f172a]">Building Brands.</span>
-        <span className="block text-[#0f172a]">Scaling Companies.</span>
-        <span className="block">
+        <motion.span variants={itemVariants} className="block text-[#0f172a]">
+          Building Brands.
+        </motion.span>
+        <motion.span variants={itemVariants} className="block text-[#0f172a]">
+          Scaling Companies.
+        </motion.span>
+        <motion.span variants={itemVariants} className="block">
           <span
             className="bg-gradient-to-r from-[#1B9DD9] via-[#1B9DD9] to-[#063482] bg-clip-text text-transparent"
             style={{ backgroundImage: 'linear-gradient(217.881deg, #1B9DD9 9.2171%, #063482 83.039%)' }}
           >
             Creating Opportunity.
           </span>
-        </span>
+        </motion.span>
       </h1>
 
       {/* Decorative underline */}
-      <div className="flex justify-center">
+      <motion.div variants={itemVariants} className="flex justify-center">
         <div className="mt-[6px] h-[5px] w-[192px] rounded-[9.6px]" style={{ backgroundColor: '#BFDBFE' }}></div>
-      </div>
-      
+      </motion.div>
+
       {/* Description */}
-      <p className="mt-6 text-[#475569] text-[18px] leading-[30px]">
+      <motion.p variants={itemVariants} className="mt-6 text-[#475569] text-[18px] leading-[30px]">
         The official portfolio of entrepreneur and brand-builder Cash Riley Jr. — showcasing the companies I own, the brands I've built, and the documented success behind each venture.
-      </p>
-      
+      </motion.p>
+
       {/* CTA Buttons */}
-      <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-4">
+      <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row flex-wrap gap-4">
         <Link to="/work-with-me#contact-form" className="w-full sm:w-auto">
           <Button variant="primary" className="w-full sm:w-auto">
             Start Your Growth Assessment
@@ -48,11 +80,13 @@ const HeroContent = () => {
             See If You Qualify
           </Button>
         </Link>
-      </div>
-      
+      </motion.div>
+
       {/* Partner Logos */}
-      <PartnerLogos />
-    </div>
+      <motion.div variants={itemVariants}>
+        <PartnerLogos />
+      </motion.div>
+    </motion.div>
   );
 };
 

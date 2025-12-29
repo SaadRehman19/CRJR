@@ -9,6 +9,7 @@ import fastIcon from '../../assets/fast.svg';
 import strategicIcon from '../../assets/strategic.svg';
 import profitableIcon from '../../assets/profitable.svg';
 import strategicGrowthPathwayImage from '../../assets/strategic_growth_pathway.png';
+import { motion } from 'framer-motion';
 
 const results = [
   {
@@ -101,7 +102,13 @@ const DocumentedSuccess = () => {
     <section className="w-full bg-gradient-to-b from-[#F1F5F9] via-white to-[#E0F2FE] py-16 md:py-24 px-6 lg:px-20">
       <div className="max-w-[1216px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-bold text-[#0F172A] leading-[1.2] mb-3">
             Success That&apos;s Documented &amp; Repeatable
           </h2>
@@ -109,19 +116,33 @@ const DocumentedSuccess = () => {
             These outcomes weren&apos;t lucky — they were engineered through systematic execution and
             proven strategies.
           </p>
-        </div>
+        </motion.div>
 
         {/* Results Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {results.map((item) => (
-            <ResultCard key={item.id} icon={item.icon} value={item.value} label={item.label} />
+          {results.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <ResultCard icon={item.icon} value={item.value} label={item.label} />
+            </motion.div>
           ))}
         </div>
 
         {/* Bottom Content */}
         <div className="flex flex-col lg:flex-row items-start gap-1 lg:gap-16">
           {/* Left - Copy & Opportunities */}
-          <div className="flex-1 max-w-xl self-start">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="flex-1 max-w-xl self-start"
+          >
             <h3 className="text-[24px] md:text-[28px] lg:text-[30px] font-bold text-[#0F172A] leading-[1.25] mb-3">
               Turning Opportunities Into Revenue
             </h3>
@@ -140,10 +161,16 @@ const DocumentedSuccess = () => {
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Right - Strategic Growth Card */}
-          <div className="flex-1 flex justify-center lg:justify-end">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="flex-1 flex justify-center lg:justify-end"
+          >
             <div className="relative w-full max-w-[460px]">
               <div className="absolute -top-10 -left-10 w-44 h-44 bg-[#22D3EE]/25 rounded-full blur-3xl" />
 
@@ -178,7 +205,7 @@ const DocumentedSuccess = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

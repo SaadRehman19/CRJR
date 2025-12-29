@@ -40,7 +40,7 @@ const products = [
 const AunerPetCard = () => {
   return (
     <div
-      className="bg-white rounded-[30px] border border-[#F3F4F6] overflow-hidden"
+      className="bg-white rounded-[30px] border border-[#F3F4F6] overflow-hidden transition-all duration-300 hover:scale-[1.02] cursor-pointer"
       style={{
         boxShadow: '0px 20px 25px 0px rgba(0, 0, 0, 0.1), 0px 8px 10px 0px rgba(0, 0, 0, 0.1)',
       }}

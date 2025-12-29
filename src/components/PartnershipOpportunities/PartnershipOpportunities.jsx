@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const ArrowRightIcon = () => (
   <svg
@@ -30,7 +31,11 @@ const PartnershipOpportunities = () => {
   return (
     <section className="w-full bg-white py-16 md:py-24 px-6 lg:px-20">
       <div className="max-w-[1216px] mx-auto">
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
           className="rounded-[24px] px-6 md:px-16 py-10 md:py-14 text-center text-white"
           style={{
             background:
@@ -54,7 +59,7 @@ const PartnershipOpportunities = () => {
             <span>Explore Partnerships</span>
             <ArrowRightIcon />
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

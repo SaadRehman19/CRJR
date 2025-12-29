@@ -1,10 +1,16 @@
+import { motion } from 'framer-motion';
 import dashboardImage from '../../assets/hero-dashboard.png';
 import RevenueCard from './RevenueCard';
 import TrustedByCard from './TrustedByCard';
 
 const HeroDashboard = () => {
   return (
-    <div className="relative w-full max-w-[678px] h-auto aspect-[678/500] mx-auto">
+    <motion.div
+      className="relative w-full max-w-[678px] h-auto aspect-[678/500] mx-auto"
+      initial={{ opacity: 0, x: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+    >
       {/* Decorative shadow layer behind - subtle gray */}
       <div className="absolute top-0 left-[7.6%] w-[95.2%] h-[106.2%] opacity-10 rounded-[26.451px] bg-gray-300"></div>
 
@@ -25,7 +31,7 @@ const HeroDashboard = () => {
           <TrustedByCard />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

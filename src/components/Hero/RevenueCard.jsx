@@ -1,8 +1,19 @@
+import { motion } from 'framer-motion';
 import revenueIcon from '../../assets/revenue-icon.svg';
 
 const RevenueCard = () => {
   return (
-    <div className="absolute top-[49.6px] right-[66px] z-20">
+    <motion.div
+      className="absolute top-[49.6px] right-[66px] z-20"
+      animate={{
+        y: [0, -10, 0],
+      }}
+      transition={{
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
+    >
       <div className="bg-white/90 backdrop-blur-sm rounded-[13.225px] shadow-[0px_4.408px_6.613px_0px_rgba(0,0,0,0.1),0px_11.021px_16.532px_0px_rgba(0,0,0,0.1)] border border-[#f1f5f9] w-[189.548px] h-[85.966px] flex items-center px-[17.63px] gap-[12px]">
         <div className="w-[35.268px] h-[35.268px] rounded-[8.817px] bg-[#dcfce7] flex items-center justify-center flex-shrink-0">
           <svg className="w-5 h-4" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -14,7 +25,7 @@ const RevenueCard = () => {
           <p className="text-[15.43px] leading-[22.042px] text-[#0f172a] font-semibold whitespace-nowrap">+124% YoY</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

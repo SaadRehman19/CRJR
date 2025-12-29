@@ -40,7 +40,7 @@ const venturesProvides = [
 const CRJRVenturesCard = () => {
   return (
     <div
-      className="bg-white rounded-[24px] overflow-hidden"
+      className="bg-white rounded-[24px] overflow-hidden transition-all duration-300 hover:scale-[1.02] cursor-pointer"
       style={{
         boxShadow: '0px 20px 25px 0px rgba(0, 0, 0, 0.1), 0px 8px 10px 0px rgba(0, 0, 0, 0.1)',
       }}

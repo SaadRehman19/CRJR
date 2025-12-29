@@ -1,4 +1,5 @@
 import whoIAmImage from '../../assets/who-i-am-figma.png';
+import { motion } from 'framer-motion';
 
 const bulletPoints = [
   'The companies I own and operate daily',
@@ -25,7 +26,13 @@ const WhoIAm = () => {
       <div className="max-w-[1280px] mx-auto px-8">
         <div className="flex flex-col lg:flex-row items-start gap-16">
           {/* Left Side - Image with Decorative Borders */}
-          <div className="relative w-[576px] h-[500px] flex-shrink-0">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="relative w-[576px] h-[500px] flex-shrink-0"
+          >
             {/* Decorative Corner - Top Left */}
             <div
               className="absolute -top-4 -left-4 w-[96px] h-[96px] border-t-4 border-l-4 border-[#063482] z-20 rounded-tl-[24px]"
@@ -47,10 +54,16 @@ const WhoIAm = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Side - Content */}
-          <div className="flex-1 w-[576px]">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="flex-1 w-[576px]"
+          >
             {/* Section Badge */}
             <div className="flex items-center gap-3 mb-6 h-5">
               <div className="w-8 h-px bg-[#063482]"></div>
@@ -87,7 +100,7 @@ const WhoIAm = () => {
                 "My experience spans multiple categories including health & wellness, pet care, protective wear, and marketplace management — all supported by real, documented results."
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

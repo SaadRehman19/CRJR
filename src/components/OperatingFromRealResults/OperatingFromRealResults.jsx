@@ -2,6 +2,7 @@ import heartIcon from '../../assets/heart.svg';
 import pawIcon from '../../assets/paw.svg';
 import retailIcon from '../../assets/retail.svg';
 import directConsumerIcon from '../../assets/direct_consumer.svg';
+import { motion } from 'framer-motion';
 
 const capabilities = [
   {
@@ -89,7 +90,13 @@ const OperatingFromRealResults = () => {
       <div className="max-w-[1216px] mx-auto">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
           {/* Left Side - Copy & Capabilities */}
-          <div className="flex-1 max-w-xl">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="flex-1 max-w-xl"
+          >
             <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-bold text-[#0F172A] leading-[1.2] mb-4">
               Operating From Real Results
             </h2>
@@ -108,10 +115,16 @@ const OperatingFromRealResults = () => {
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Side - Expertise Card */}
-          <div className="flex-1 w-full flex justify-center lg:justify-end">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="flex-1 w-full flex justify-center lg:justify-end"
+          >
             <div
               className="w-full max-w-md bg-[#102A43] rounded-[24px] px-6 py-6 md:px-8 md:py-8 shadow-2xl"
               style={{ boxShadow: '0px 24px 60px rgba(15, 23, 42, 0.65)' }}
@@ -131,7 +144,7 @@ const OperatingFromRealResults = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

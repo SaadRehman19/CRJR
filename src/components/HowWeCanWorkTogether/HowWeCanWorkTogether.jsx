@@ -7,6 +7,7 @@ import revenueIcon from '../../assets/revenue.svg';
 import greenTick from '../../assets/green_tick.svg';
 import blueTick from '../../assets/blue_tick.svg';
 import orangeTick from '../../assets/orange_tick.svg';
+import { motion } from 'framer-motion';
 
 const services = [
   {
@@ -124,7 +125,13 @@ const HowWeCanWorkTogether = () => {
   return (
     <section className="w-full bg-gradient-to-b from-[#F8FAFC] via-white to-[#E0F2FE] py-16 md:py-24 px-6 lg:px-20">
       <div className="max-w-[1216px] mx-auto">
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <h2 className="text-[32px] md:text-[36px] font-bold text-[#0F172A] leading-[1.2] mb-3">
             How We Can Work Together
           </h2>
@@ -132,17 +139,25 @@ const HowWeCanWorkTogether = () => {
             I take on selective engagements where I can deliver meaningful value. Let&apos;s explore how we
             can create exceptional results together.
           </p>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service) => (
-            <ServiceCard
+          {services.map((service, index) => (
+            <motion.div
               key={service.id}
-              title={service.title}
-              description={service.description}
-              bullets={service.bullets}
-              icon={service.icon}
-              tickIcon={service.tickIcon}
-            />
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -8, boxShadow: '0px 20px 40px rgba(15, 23, 42, 0.15)' }}
+            >
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                bullets={service.bullets}
+                icon={service.icon}
+                tickIcon={service.tickIcon}
+              />
+            </motion.div>
           ))}
         </div>
       </div>

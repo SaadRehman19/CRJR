@@ -1,49 +1,95 @@
+import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+
 const statsData = [
   {
     value: '$40M+',
+    number: 40,
+    prefix: '$',
+    suffix: 'M+',
     lines: ['Revenue Driven for Brands', 'Across Amazon, Walmart &', 'TikTok'],
     hasDivider: false,
   },
   {
     value: '25+',
+    number: 25,
+    suffix: '+',
     lines: ['Brands Scaled Using Our', 'Proven WINNING Framework'],
     hasDivider: true,
   },
   {
     value: '3x – 10x',
+    displayValue: '3x – 10x',
     lines: ['Avg. Growth Brands', 'Experience in Year One'],
     hasDivider: true,
+    noAnimation: true,
   },
   {
     value: '98%',
+    number: 98,
+    suffix: '%',
     lines: ['Client Retention Rate Among', 'Growth-Ready Brands'],
     hasDivider: true,
   },
 ];
 
-const StatItem = ({ value, lines, hasDivider }) => {
+const StatItem = ({ value, number, prefix = '', suffix = '', displayValue, noAnimation, lines, hasDivider, index }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { duration: 2000 });
+  const displayCount = useMotionValue(0);
+
+  useEffect(() => {
+    if (isInView && number && !noAnimation) {
+      motionValue.set(number);
+    }
+  }, [isInView, number, noAnimation, motionValue]);
+
+  useEffect(() => {
+    const unsubscribe = springValue.on('change', (latest) => {
+      displayCount.set(Math.floor(latest));
+    });
+    return () => unsubscribe();
+  }, [springValue, displayCount]);
+
   return (
-    <div
+    <motion.div
+      ref={ref}
       className={`flex-1 flex flex-col items-center text-center px-4 py-6 md:py-0 ${
         hasDivider ? 'border-t md:border-t-0 md:border-l border-white/10' : ''
       }`}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.15 }}
     >
       {/* Stat Value */}
       <h3 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-3">
-        {value}
+        {noAnimation || displayValue ? (
+          displayValue || value
+        ) : (
+          <>
+            {prefix}
+            <motion.span>{displayCount}</motion.span>
+            {suffix}
+          </>
+        )}
       </h3>
       {/* Stat Description */}
       <div className="space-y-0">
-        {lines.map((line, index) => (
-          <p
-            key={index}
+        {lines.map((line, lineIndex) => (
+          <motion.p
+            key={lineIndex}
             className="text-sm md:text-base text-slate-300 leading-relaxed"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, delay: index * 0.15 + 0.3 + lineIndex * 0.1 }}
           >
             {line}
-          </p>
+          </motion.p>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -83,7 +129,13 @@ const Stats = () => {
           {statsData.map((stat, index) => (
             <StatItem
               key={index}
+              index={index}
               value={stat.value}
+              number={stat.number}
+              prefix={stat.prefix}
+              suffix={stat.suffix}
+              displayValue={stat.displayValue}
+              noAnimation={stat.noAnimation}
               lines={stat.lines}
               hasDivider={stat.hasDivider}
             />

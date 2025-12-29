@@ -1,6 +1,7 @@
 import highImpactIcon from '../../assets/high_impact.svg';
 import brandsHelpedIcon from '../../assets/brands_helped.svg';
 import revenueIcon from '../../assets/revenue.svg';
+import { motion } from 'framer-motion';
 
 const strategies = [
   {
@@ -55,7 +56,13 @@ const StrategiesProven = () => {
     <section className="w-full bg-[#F8FAFC] py-16 md:py-24 px-6 lg:px-20">
       <div className="max-w-[1216px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
           <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-bold text-[#0F172A] leading-[1.2] mb-4">
             My Strategies Are Proven
           </h2>
@@ -63,17 +70,24 @@ const StrategiesProven = () => {
             From The Machine Agency to MCM Nutrition, AUNER Pet Inc., and CRJR Partners
             — each business is a live, operating example of my systems executed at a high level.
           </p>
-        </div>
+        </motion.div>
 
         {/* Strategies Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
-          {strategies.map((strategy) => (
-            <StrategyCard
+          {strategies.map((strategy, index) => (
+            <motion.div
               key={strategy.id}
-              title={strategy.title}
-              description={strategy.description}
-              icon={strategy.icon}
-            />
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <StrategyCard
+                title={strategy.title}
+                description={strategy.description}
+                icon={strategy.icon}
+              />
+            </motion.div>
           ))}
         </div>
       </div>
