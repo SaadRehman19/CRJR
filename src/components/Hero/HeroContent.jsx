@@ -27,18 +27,18 @@ const HeroContent = () => {
 
   return (
     <motion.div
-      className="w-full"
+      className="w-full text-center md:text-left"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
       {/* Badge */}
-      <motion.div variants={itemVariants}>
+      <motion.div variants={itemVariants} className="flex justify-center md:justify-start">
         <HeroBadge />
       </motion.div>
 
       {/* Main Headline */}
-      <h1 className="mt-6 text-[32px] sm:text-[48px] md:text-[64px] lg:text-[72px] font-bold leading-tight md:leading-[72px] tracking-[-2.3px]">
+      <h1 className="mt-6 text-[34px] sm:text-[48px] md:text-[64px] lg:text-[72px] font-bold leading-[1.15] md:leading-[72px] tracking-tight">
         <motion.span variants={itemVariants} className="block text-[#0f172a]">
           Building Brands.
         </motion.span>
@@ -56,12 +56,12 @@ const HeroContent = () => {
       </h1>
 
       {/* Decorative underline */}
-      <motion.div variants={itemVariants} className="flex justify-center">
+      <motion.div variants={itemVariants} className="flex justify-center md:justify-start">
         <div className="mt-[6px] h-[5px] w-[192px] rounded-[9.6px]" style={{ backgroundColor: '#BFDBFE' }}></div>
       </motion.div>
 
       {/* Description */}
-      <motion.p variants={itemVariants} className="mt-6 text-[#475569] text-[18px] leading-[30px]">
+      <motion.p variants={itemVariants} className="mt-6 text-[#475569] text-[15px] sm:text-[16px] md:text-[18px] leading-[1.6] md:leading-[30px]">
         The official portfolio of entrepreneur and brand-builder Cash Riley Jr. — showcasing the companies I own, the brands I've built, and the documented success behind each venture.
       </motion.p>
 

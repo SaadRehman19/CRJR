@@ -27,7 +27,7 @@ const CompaniesHero = () => {
   };
 
   return (
-    <section className="relative w-full pt-[20px] pb-[96px] px-6 md:px-12 lg:px-20 overflow-hidden bg-[#f8fafc]">
+    <section className="relative w-full pt-[20px] pb-12 md:pb-[96px] px-6 md:px-12 lg:px-20 overflow-hidden bg-[#f8fafc]">
       {/* Background decorations */}
       <div className="absolute top-[-80px] right-[1136px] w-[384px] h-[384px] bg-[#eff6ff] opacity-50 rounded-full -z-10"></div>
       <div className="absolute top-[416px] right-[-110px] w-[341px] h-[323px] opacity-20 -z-10">
@@ -35,7 +35,7 @@ const CompaniesHero = () => {
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 lg:gap-16">
           {/* Left Content */}
           <motion.div
             className="flex-1 max-w-xl"
@@ -44,15 +44,17 @@ const CompaniesHero = () => {
             animate="visible"
           >
             {/* Badge */}
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-[#063482]"></div>
-              <span className="text-[14px] font-normal text-[#063482] tracking-[0.7px]">
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 mb-4 md:mb-6">
+              <svg className="w-4 h-4 text-[#063482]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <span className="text-[13px] md:text-[14px] font-medium text-[#063482] tracking-[0.7px]">
                 CRJR Venture Partners
               </span>
             </motion.div>
 
             {/* Main Headline */}
-            <h1 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[72px] font-bold leading-tight lg:leading-[72px] tracking-[-2.3px] mb-2">
+            <h1 className="text-[28px] sm:text-[40px] md:text-[56px] lg:text-[72px] font-bold leading-[1.2] md:leading-tight lg:leading-[72px] tracking-tight md:tracking-[-2.3px] mb-1 md:mb-2">
               <motion.span variants={itemVariants} className="block text-[#0f172a]">
                 Building & Scaling
               </motion.span>
@@ -63,21 +65,21 @@ const CompaniesHero = () => {
 
             {/* Decorative Line */}
             <motion.div variants={itemVariants} className="flex">
-              <div className="mt-[6px] h-[5px] w-[192px] rounded-[9.6px] mb-6" style={{ backgroundColor: '#BFDBFE' }}></div>
+              <div className="mt-2 md:mt-[6px] h-[4px] md:h-[5px] w-[120px] md:w-[192px] rounded-[9.6px] mb-4 md:mb-6" style={{ backgroundColor: '#BFDBFE' }}></div>
             </motion.div>
 
             {/* Description */}
-            <motion.p variants={itemVariants} className="text-[18px] text-[#475569] leading-[30px] mb-8">
+            <motion.p variants={itemVariants} className="text-[15px] md:text-[18px] text-[#475569] leading-[1.6] md:leading-[30px] mb-6 md:mb-8">
               A proven ecosystem of companies generating over $40MM in revenue through strategic
               marketplace dominance, innovative brand building, and operational excellence.
             </motion.p>
 
             {/* CTA Button */}
-            <motion.div variants={itemVariants} className="mb-10">
-              <Link to="/work-with-me#contact-form" className="w-full sm:w-auto inline-block">
-                <Button variant="primary" className="w-full sm:w-auto">
+            <motion.div variants={itemVariants} className="mb-0 md:mb-10">
+              <Link to="/work-with-me#contact-form" className="w-full md:w-auto inline-block">
+                <Button variant="primary" className="w-full md:w-auto justify-center">
                   Start Your Growth Assessment
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Button>
@@ -85,9 +87,9 @@ const CompaniesHero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Image Box */}
+          {/* Right Side - Image Box - Hidden on mobile */}
           <motion.div
-            className="flex-1 relative flex justify-center lg:justify-end"
+            className="hidden lg:flex flex-1 relative justify-center lg:justify-end"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}

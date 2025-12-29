@@ -29,24 +29,24 @@ const ArrowRightIcon = () => (
 const PartnershipOpportunities = () => {
   const navigate = useNavigate();
   return (
-    <section className="w-full bg-white py-16 md:py-24 px-6 lg:px-20">
+    <section className="w-full bg-white py-12 md:py-16 lg:py-24 px-6 md:px-12 lg:px-20">
       <div className="max-w-[1216px] mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="rounded-[24px] px-6 md:px-16 py-10 md:py-14 text-center text-white"
+          className="rounded-[20px] md:rounded-[24px] px-6 md:px-12 lg:px-16 py-8 md:py-10 lg:py-14 text-center text-white"
           style={{
             background:
               'linear-gradient(90deg, rgba(6, 52, 130, 1) 0%, rgba(27, 157, 217, 1) 100%)',
             boxShadow: '0px 24px 60px rgba(15, 23, 42, 0.45)',
           }}
         >
-          <h2 className="text-[24px] md:text-[28px] lg:text-[30px] font-bold leading-[1.2] mb-3">
+          <h2 className="text-[22px] md:text-[28px] lg:text-[30px] font-bold leading-[1.2] mb-2 md:mb-3">
             Partnership Opportunities
           </h2>
-          <p className="text-sm md:text-base lg:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto mb-8">
+          <p className="text-[13px] md:text-sm lg:text-lg text-white/80 leading-[1.6] md:leading-relaxed max-w-2xl mx-auto mb-6 md:mb-8 px-2 md:px-0">
             Looking for strategic partnerships, investment opportunities, or collaborative ventures?
             Let&apos;s explore how we can create value together.
           </p>
@@ -54,7 +54,7 @@ const PartnershipOpportunities = () => {
           <button
             type="button"
             onClick={() => navigate('/companies')}
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-white text-[#063482] font-semibold text-sm md:text-base shadow-[0_14px_35px_rgba(15,23,42,0.35)] hover:bg-slate-50 hover:scale-105 hover:shadow-[0_20px_45px_rgba(15,23,42,0.45)] transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 md:px-7 py-2.5 md:py-3 rounded-full bg-white text-[#063482] font-semibold text-[14px] md:text-base shadow-[0_14px_35px_rgba(15,23,42,0.35)] hover:bg-slate-50 hover:scale-105 hover:shadow-[0_20px_45px_rgba(15,23,42,0.45)] transition-all duration-300 cursor-pointer"
           >
             <span>Explore Partnerships</span>
             <ArrowRightIcon />

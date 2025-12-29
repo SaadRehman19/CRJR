@@ -45,8 +45,8 @@ const services = [
 
 const ServiceIcon = ({ icon }) => {
   return (
-    <div className="w-16 h-16 bg-[#102a43] rounded-[16px] flex items-center justify-center">
-      <img src={icon} alt="" className="w-11 h-11" />
+    <div className="w-14 h-14 md:w-16 md:h-16 bg-[#102a43] rounded-[14px] md:rounded-[16px] flex items-center justify-center">
+      <img src={icon} alt="" className="w-9 h-9 md:w-11 md:h-11" />
     </div>
   );
 };
@@ -54,7 +54,7 @@ const ServiceIcon = ({ icon }) => {
 const ServiceCard = ({ title, description, icon, graphic, index }) => {
   return (
     <motion.div
-      className="p-8 rounded-[24px] border border-[#f3f4f6] shadow-[0px_4px_6px_0px_rgba(0,0,0,0.1),0px_10px_15px_0px_rgba(0,0,0,0.1)] flex flex-col"
+      className="p-6 md:p-8 rounded-[20px] md:rounded-[24px] border border-[#f3f4f6] shadow-[0px_4px_6px_0px_rgba(0,0,0,0.1),0px_10px_15px_0px_rgba(0,0,0,0.1)] flex flex-col"
       style={{
         background: 'linear-gradient(145.429deg, rgba(255, 255, 255, 1) 0%, rgba(249, 250, 251, 1) 70.711%)',
       }}
@@ -65,10 +65,11 @@ const ServiceCard = ({ title, description, icon, graphic, index }) => {
       whileHover={{ y: -8, boxShadow: '0px 20px 40px rgba(0,0,0,0.15)' }}
     >
       <ServiceIcon icon={icon} />
-      <h3 className="mt-6 text-[20px] font-bold text-[#0a0e27] leading-[28px]">{title}</h3>
-      <p className="mt-3 text-[14px] text-[#4b5563] leading-[20px]">{description}</p>
-      <div className="mt-8 flex items-center justify-center h-[160px]">
-        <img src={graphic} alt="" className="w-auto  max-w-full object-contain" />
+      <h3 className="mt-4 md:mt-6 text-[18px] md:text-[20px] font-bold text-[#0a0e27] leading-[1.3]">{title}</h3>
+      <p className="mt-2 md:mt-3 text-[13px] md:text-[14px] text-[#4b5563] leading-[1.5]">{description}</p>
+      {/* Show graphic only on desktop (md and up), hide on mobile */}
+      <div className="hidden md:flex mt-6 md:mt-8 items-center justify-center h-[120px] md:h-[160px]">
+        <img src={graphic} alt="" className="w-auto max-w-full object-contain" />
       </div>
     </motion.div>
   );
@@ -76,31 +77,31 @@ const ServiceCard = ({ title, description, icon, graphic, index }) => {
 
 const WhatIDo = () => {
   return (
-    <section className="w-full bg-white py-24 px-20">
-      <div className="max-w-[1280px] mx-auto px-8">
+    <section className="w-full bg-white py-12 md:py-16 lg:py-24 px-6 md:px-12 lg:px-20">
+      <div className="max-w-[1280px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-12 lg:mb-16">
           {/* Badge */}
-          <div className="inline-flex items-center gap-3 mb-2 h-5">
-            <div className="w-8 h-px bg-[#063482]"></div>
-            <span className="text-[14px] font-normal text-[#063482] tracking-[0.7px] leading-5">
+          <div className="inline-flex items-center gap-3 mb-3 md:mb-4">
+            <div className="w-2 h-2 bg-[#063482] rounded-full"></div>
+            <span className="text-[13px] md:text-[14px] font-medium text-[#063482] tracking-[0.7px]">
               My Expertise
             </span>
           </div>
 
           {/* Title */}
-          <h2 className="text-[36px] font-bold text-[#0f172a] leading-[45px] mb-6">
+          <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-bold text-[#0f172a] leading-[1.2] mb-4 md:mb-6">
             What I Do
           </h2>
 
           {/* Subtitle */}
-          <p className="text-[18px] text-[#475569] leading-[30px] max-w-[768px] mx-auto">
+          <p className="text-[15px] md:text-[16px] lg:text-[18px] text-[#475569] leading-[1.6] max-w-[768px] mx-auto px-4">
             Comprehensive brand building and growth services tailored for ambitious Amazon sellers
           </p>
         </div>
 
         {/* Service Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {services.map((service, index) => (
             <ServiceCard
               key={service.id}

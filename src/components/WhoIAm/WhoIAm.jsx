@@ -10,7 +10,7 @@ const bulletPoints = [
 
 const CheckIcon = () => (
   <svg
-    className="w-4 h-4 text-[#063482] shrink-0 mt-1"
+    className="w-4 h-4 md:w-5 md:h-5 text-[#063482] shrink-0 mt-0.5"
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
@@ -22,16 +22,16 @@ const CheckIcon = () => (
 
 const WhoIAm = () => {
   return (
-    <section className="w-full bg-white py-24 px-20">
-      <div className="max-w-[1280px] mx-auto px-8">
+    <section className="w-full bg-white py-12 md:py-16 lg:py-24 px-6 md:px-12 lg:px-20">
+      <div className="max-w-[1280px] mx-auto">
         <div className="flex flex-col lg:flex-row items-start gap-16">
-          {/* Left Side - Image with Decorative Borders */}
+          {/* Left Side - Image with Decorative Borders - Hidden on Mobile */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7 }}
-            className="relative w-[576px] h-[500px] flex-shrink-0"
+            className="hidden lg:block relative w-[576px] h-[500px] flex-shrink-0"
           >
             {/* Decorative Corner - Top Left */}
             <div
@@ -62,32 +62,32 @@ const WhoIAm = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex-1 w-[576px]"
+            className="flex-1 w-full lg:w-[576px]"
           >
             {/* Section Badge */}
-            <div className="flex items-center gap-3 mb-6 h-5">
-              <div className="w-8 h-px bg-[#063482]"></div>
-              <span className="text-[14px] font-normal text-[#063482] tracking-[0.7px] leading-5">
+            <div className="flex items-center gap-3 mb-4 md:mb-6">
+              <div className="w-2 h-2 bg-[#063482] rounded-full"></div>
+              <span className="text-[13px] md:text-[14px] font-medium text-[#063482] tracking-[0.7px]">
                 Who I Am
               </span>
             </div>
 
             {/* Main Headline */}
-            <h2 className="text-[36px] font-bold text-[#0f172a] leading-[40px] mb-6">
+            <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-bold text-[#0f172a] leading-[1.2] mb-4 md:mb-6">
               Founder. Operator. Growth Strategist.
             </h2>
 
             {/* Bio Paragraph */}
-            <p className="text-[18px] text-[#475569] leading-[30px] mb-8">
+            <p className="text-[15px] md:text-[16px] lg:text-[18px] text-[#475569] leading-[1.7] mb-6 md:mb-8">
               I'm Cash Riley Jr., a founder, operator, and growth strategist who builds high-performance brands across Amazon, retail, and e-commerce. I don't just advise—I build.
             </p>
 
             {/* Bullet Points */}
-            <div className="space-y-7 mb-10">
+            <div className="space-y-4 md:space-y-5 lg:space-y-7 mb-8 md:mb-10">
               {bulletPoints.map((point, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <CheckIcon />
-                  <span className="text-[16px] text-[#334155] leading-[24px]">
+                  <span className="text-[14px] md:text-[15px] lg:text-[16px] text-[#334155] leading-[1.6]">
                     {point}
                   </span>
                 </div>
@@ -95,8 +95,8 @@ const WhoIAm = () => {
             </div>
 
             {/* Quote Block */}
-            <div className="border-l-4 border-[#102a43] bg-[#f8fafc] rounded-tr-[8px] rounded-br-[8px] h-[120px] flex items-center px-6">
-              <p className="text-[16px] text-[#475569] leading-[24px] font-normal italic text-center w-full">
+            <div className="border-l-4 border-[#102a43] bg-[#f8fafc] rounded-tr-[8px] rounded-br-[8px] min-h-[100px] md:h-[120px] flex items-center px-4 md:px-6 py-4">
+              <p className="text-[14px] md:text-[15px] lg:text-[16px] text-[#475569] leading-[1.6] font-normal italic w-full">
                 "My experience spans multiple categories including health & wellness, pet care, protective wear, and marketplace management — all supported by real, documented results."
               </p>
             </div>

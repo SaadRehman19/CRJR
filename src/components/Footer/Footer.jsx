@@ -29,30 +29,30 @@ const EmailIcon = () => (
 const Footer = () => {
   return (
     <footer className="w-full bg-white border-t border-[#e5e7eb]">
-      <div className="max-w-[1216px] mx-auto px-20 py-12">
-        <div className="flex flex-col md:flex-row justify-between gap-10">
+      <div className="max-w-[1216px] mx-auto px-6 md:px-12 lg:px-20 py-8 md:py-10 lg:py-12">
+        <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-8 lg:gap-10">
           {/* Left Side - Logo and Description */}
-          <div className="max-w-sm">
+          <div className="max-w-sm text-center md:text-left">
             <img
               src={crjrLogo}
               alt="CRJR Ventures"
-              className="h-10 w-auto mb-4"
+              className="h-8 md:h-10 w-auto mb-3 md:mb-4 mx-auto md:mx-0"
             />
-            <p className="text-[14px] text-[#64748b] leading-[20px]">
+            <p className="text-[13px] md:text-[14px] text-[#64748b] leading-[1.6] md:leading-[20px]">
               Building brands and scaling companies globally through operational excellence and
               strategic growth.
             </p>
           </div>
 
-          {/* Center - Navigation Links (Horizontal) */}
-          <div>
-            <h4 className="text-[14px] font-semibold text-[#0f172a] mb-4">Interlinks</h4>
-            <ul className="flex items-center gap-6">
+          {/* Center - Navigation Links */}
+          <div className="text-center md:text-left">
+            <h4 className="text-[13px] md:text-[14px] font-semibold text-[#0f172a] mb-3 md:mb-4">Interlinks</h4>
+            <ul className="flex flex-col md:flex-row items-center md:items-center gap-2 md:gap-6">
               {footerLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-[14px] text-[#475569] hover:text-[#0f172a] transition-colors"
+                    className="text-[13px] md:text-[14px] text-[#475569] hover:text-[#0f172a] transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -62,9 +62,9 @@ const Footer = () => {
           </div>
 
           {/* Right Side - Social Links */}
-          <div>
-            <h4 className="text-[14px] font-semibold text-[#0f172a] mb-4">Follow the Journey</h4>
-            <div className="flex items-center gap-4">
+          <div className="text-center md:text-left">
+            <h4 className="text-[13px] md:text-[14px] font-semibold text-[#0f172a] mb-3 md:mb-4">Follow the Journey</h4>
+            <div className="flex items-center justify-center md:justify-start gap-3 md:gap-4">
               <a
                 href="https://linkedin.com/in/cashrileyjr"
                 className="text-[#475569] hover:text-[#0f172a] transition-colors"
@@ -91,8 +91,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom - Copyright */}
-        <div className="mt-12 pt-8 border-t border-[#e5e7eb]">
-          <p className="text-[14px] text-[#94a3b8] text-center">
+        <div className="mt-6 md:mt-8 lg:mt-10 pt-5 md:pt-6 lg:pt-8 border-t border-[#e5e7eb]">
+          <p className="text-[12px] md:text-[13px] text-[#94a3b8] text-center">
             © 2025 CRJR Ventures. All rights reserved.
           </p>
         </div>

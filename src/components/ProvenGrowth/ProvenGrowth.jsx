@@ -24,11 +24,11 @@ const metrics = [
 
 const GrowthChart = () => (
   <div
-    className="relative w-full h-[500px] bg-white rounded-[16px] border border-[#f3f4f6] p-8"
+    className="relative w-full h-[350px] md:h-[450px] lg:h-[500px] bg-white rounded-[14px] md:rounded-[16px] border border-[#f3f4f6] p-5 md:p-6 lg:p-8"
     style={{ boxShadow: '0px 8px 10px 0px rgba(0, 0, 0, 0.1), 0px 20px 25px 0px rgba(0, 0, 0, 0.1)' }}
   >
     {/* Chart title */}
-    <div className="absolute top-8 left-8 text-[18px] font-normal text-[#0a192f]" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <div className="absolute top-5 md:top-6 lg:top-8 left-5 md:left-6 lg:left-8 text-[15px] md:text-[17px] lg:text-[18px] font-normal text-[#0a192f]" style={{ fontFamily: 'Inter, sans-serif' }}>
       Portfolio Revenue Growth
     </div>
 
@@ -109,14 +109,14 @@ const MetricItem = ({ label, value, color, progress }) => (
 
 const ProvenGrowth = () => {
   return (
-    <section className="w-full bg-[#F8FAFC] py-16 md:py-24 px-6 lg:px-20">
+    <section className="w-full bg-[#F8FAFC] py-12 md:py-16 lg:py-24 px-6 md:px-12 lg:px-20">
       <div className="max-w-[1216px] mx-auto">
         {/* Centered Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-[36px] font-bold text-[#0f172a] leading-[40px] mb-4">
+        <div className="text-center mb-10 md:mb-12">
+          <h2 className="text-[26px] md:text-[32px] lg:text-[36px] font-bold text-[#0f172a] leading-[1.2] mb-3 md:mb-4 px-4">
             Proven Growth Trajectory
           </h2>
-          <p className="text-[16px] text-[#475569] leading-[24px] max-w-2xl mx-auto">
+          <p className="text-[14px] md:text-[15px] lg:text-[16px] text-[#475569] leading-[1.6] max-w-2xl mx-auto px-4">
             Visualizing the impact of our WINNING Framework on partner brands.
           </p>
         </div>
@@ -131,17 +131,17 @@ const ProvenGrowth = () => {
           {/* Right Side - Impact Metrics Card */}
           <div className="w-full lg:w-[384px]">
             <div
-              className="rounded-[16px] p-8 h-[500px]"
+              className="rounded-[14px] md:rounded-[16px] p-6 md:p-7 lg:p-8 min-h-[350px] md:min-h-[400px] lg:h-[500px]"
               style={{ background: 'linear-gradient(176.4deg, #0a192f 0%, #2563eb 100%)' }}
             >
-              <h3 className="text-[24px] font-normal text-white mb-6">Impact Metrics</h3>
-              <div className="space-y-5">
+              <h3 className="text-[20px] md:text-[22px] lg:text-[24px] font-normal text-white mb-5 md:mb-6">Impact Metrics</h3>
+              <div className="space-y-4 md:space-y-5">
                 {metrics.map((metric) => (
                   <MetricItem key={metric.id} {...metric} />
                 ))}
               </div>
-              <div className="mt-6 pt-6 border-t border-[#374151]">
-                <button className="flex items-center gap-2 text-[14px] text-white hover:text-gray-300 transition-colors">
+              <div className="mt-5 md:mt-6 pt-5 md:pt-6 border-t border-[#374151]">
+                <button className="flex items-center gap-2 text-[13px] md:text-[14px] text-white hover:text-gray-300 transition-colors">
                   View detailed case studies
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

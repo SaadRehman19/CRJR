@@ -42,7 +42,7 @@ const EcosystemCard = ({ title, description, stats, variant, icon }) => {
 
   return (
     <div
-      className={`rounded-[24px] p-6 flex flex-col h-full ${
+      className={`rounded-[16px] md:rounded-[24px] p-5 md:p-6 flex flex-col h-full ${
         isDark ? 'bg-[#102A43]' : ''
       }`}
       style={
@@ -56,29 +56,29 @@ const EcosystemCard = ({ title, description, stats, variant, icon }) => {
     >
       {/* Icon */}
       <div
-        className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+        className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-4 ${
           isDark ? 'bg-white/20' : 'bg-[#e5e7eb]'
         }`}
       >
-        <img src={icon} alt="" className="w-6 h-6" />
+        <img src={icon} alt="" className="w-5 h-5 md:w-6 md:h-6" />
       </div>
 
       {/* Title */}
-      <h3 className={`text-xl font-bold mb-3 ${isDark ? 'text-white' : 'text-[#102A43]'}`}>
+      <h3 className={`text-[18px] md:text-xl font-bold mb-2 md:mb-3 leading-tight ${isDark ? 'text-white' : 'text-[#102A43]'}`}>
         {title}
       </h3>
 
       {/* Description */}
-      <p className={`text-sm leading-relaxed mb-6 flex-grow ${isDark ? 'text-white/70' : 'text-[#475569]'}`}>
+      <p className={`text-[13px] md:text-sm leading-relaxed mb-4 md:mb-6 flex-grow ${isDark ? 'text-white/70' : 'text-[#475569]'}`}>
         {description}
       </p>
 
       {/* Stats */}
-      <div className="flex gap-6">
+      <div className="flex gap-4 md:gap-6">
         {stats.map((stat, index) => (
           <div key={index}>
             <p
-              className={`text-2xl font-bold ${isDark ? 'text-white' : ''}`}
+              className={`text-[20px] md:text-2xl font-bold ${isDark ? 'text-white' : ''}`}
               style={!isDark ? {
                 background: 'linear-gradient(180deg, #1B9DD9 0%, #063482 100%)',
                 WebkitBackgroundClip: 'text',
@@ -88,7 +88,7 @@ const EcosystemCard = ({ title, description, stats, variant, icon }) => {
             >
               {stat.value}
             </p>
-            <p className={`text-xs ${isDark ? 'text-white/60' : 'text-[#475569]'}`}>
+            <p className={`text-[11px] md:text-xs ${isDark ? 'text-white/60' : 'text-[#475569]'}`}>
               {stat.label}
             </p>
           </div>
@@ -100,21 +100,21 @@ const EcosystemCard = ({ title, description, stats, variant, icon }) => {
 
 const CRJREcosystem = () => {
   return (
-    <section className="w-full py-20 px-6 lg:px-20 bg-white">
+    <section className="w-full py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-20 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#0F172A] mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-[28px] md:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-3 md:mb-4 leading-tight">
             The CRJR Ventures Ecosystem
           </h2>
-          <p className="text-lg lg:text-xl text-[#64748B] max-w-3xl mx-auto leading-relaxed">
-            A vertically integrated portfolio of companies spanning marketplace operations, 
+          <p className="text-[15px] md:text-lg lg:text-xl text-[#64748B] max-w-3xl mx-auto leading-relaxed px-4 md:px-0">
+            A vertically integrated portfolio of companies spanning marketplace operations,
             brand development, and category-specific ventures across multiple industries.
           </p>
         </div>
 
         {/* Ecosystem Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {ecosystemPillars.map((pillar, index) => (
             <EcosystemCard
               key={index}

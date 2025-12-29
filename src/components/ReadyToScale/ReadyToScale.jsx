@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 
 const ReadyToScale = () => {
   return (
-    <section className="w-full bg-white py-24 px-20 border-t border-[#e5e7eb]">
+    <section className="w-full bg-white py-12 md:py-16 lg:py-24 px-6 md:px-12 lg:px-20 border-t border-[#e5e7eb]">
       <div className="max-w-[1216px] mx-auto text-center">
         {/* Headline */}
-        <h2 className="text-[36px] font-bold text-[#0f172a] leading-[40px] mb-6">
+        <h2 className="text-[26px] md:text-[32px] lg:text-[36px] font-bold text-[#0f172a] leading-[1.2] mb-4 md:mb-6">
           Ready to Scale?
         </h2>
 
         {/* Description */}
-        <p className="text-[18px] text-[#475569] leading-[30px] max-w-2xl mx-auto mb-10">
+        <p className="text-[15px] md:text-[16px] lg:text-[18px] text-[#475569] leading-[1.6] max-w-2xl mx-auto mb-6 md:mb-8 lg:mb-10 px-4">
           Whether you're looking for strategic advisory, partnership opportunities, or want to
           discuss an acquisition, I'm always open to the right conversation.
         </p>
@@ -31,7 +31,7 @@ const ReadyToScale = () => {
           {/* Secondary Button */}
           <a
             href="https://linkedin.com/in/cashrileyjr"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0f172a] rounded-[30px] font-bold text-[16px] border-2 border-[#e5e7eb] hover:bg-gray-50 transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-[#0f172a] rounded-[30px] font-bold text-[14px] md:text-[16px] border-2 border-[#e5e7eb] hover:bg-gray-50 transition-colors"
           >
             <img src={linkedinIcon} alt="" className="w-5 h-5" />
             Connect on LinkedIn
