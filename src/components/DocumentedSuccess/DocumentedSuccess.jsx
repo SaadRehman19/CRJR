@@ -1,3 +1,4 @@
+import React from 'react';
 import dollarIcon from '../../assets/dollar.svg';
 import revenueIcon from '../../assets/revenue.svg';
 import activeCompaniesIcon from '../../assets/active_companies.svg';
@@ -62,39 +63,110 @@ const opportunities = [
   },
 ];
 
-const ResultCard = ({ icon, value, label }) => (
-  <div
-    className="bg-white rounded-xl md:rounded-2xl px-4 py-5 md:px-6 md:py-7 shadow-[0_18px_45px_rgba(15,23,42,0.12)] border border-[#E5E7EB] flex flex-col items-center text-center"
-  >
-    <div className="mb-3 md:mb-5 flex items-center justify-center">
-      <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-[#EFF6FF] flex items-center justify-center">
-        <img src={icon} alt="" className="w-6 h-6 md:w-8 md:h-8" />
-      </div>
-    </div>
-    <p className="text-[22px] md:text-2xl lg:text-3xl font-bold text-[#0F172A] mb-1">{value}</p>
-    <p className="text-[12px] md:text-sm text-[#64748B]">{label}</p>
-  </div>
-);
+const ResultCard = ({ icon, value, label, index }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
 
-const OpportunityItem = ({ title, description, icon }) => (
-  <div className="flex items-start gap-3 md:gap-4 rounded-xl md:rounded-2xl bg-white/75 backdrop-blur-sm px-4 py-4 md:px-6 md:py-6 shadow-[0_14px_35px_rgba(15,23,42,0.08)] border border-white/80">
+  return (
+    <motion.div
+      whileHover={{ scale: 1.08, y: -10 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      animate={{
+        background: isHovered
+          ? 'linear-gradient(135deg, #1B9DD9 0%, #063482 100%)'
+          : 'linear-gradient(135deg, #ffffff 0%, #ffffff 100%)',
+        borderColor: isHovered ? '#1B9DD9' : '#E5E7EB',
+      }}
+      transition={{ duration: 0.3 }}
+      className="rounded-xl md:rounded-2xl px-4 py-5 md:px-6 md:py-7 shadow-[0_18px_45px_rgba(15,23,42,0.12)] border-2 flex flex-col items-center text-center cursor-pointer"
+    >
+      <motion.div
+        initial={{ scale: 0, rotate: -180 }}
+        whileInView={{ scale: 1, rotate: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
+        className="mb-3 md:mb-5 flex items-center justify-center"
+      >
+        <motion.div
+          animate={{
+            backgroundColor: isHovered ? 'rgba(255, 255, 255, 0.2)' : '#EFF6FF',
+          }}
+          transition={{ duration: 0.3 }}
+          className="w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center"
+        >
+          <motion.img
+            whileHover={{ rotate: 12, scale: 1.1 }}
+            animate={{
+              filter: isHovered ? 'brightness(0) invert(1)' : 'brightness(1) invert(0)',
+            }}
+            transition={{ duration: 0.3 }}
+            src={icon}
+            alt=""
+            className="w-6 h-6 md:w-8 md:h-8"
+          />
+        </motion.div>
+      </motion.div>
+      <motion.p
+        animate={{
+          color: isHovered ? '#ffffff' : '#0F172A',
+        }}
+        transition={{ duration: 0.3 }}
+        className="text-[22px] md:text-2xl lg:text-3xl font-bold mb-1"
+      >
+        {value}
+      </motion.p>
+      <motion.p
+        animate={{
+          color: isHovered ? 'rgba(255, 255, 255, 0.9)' : '#64748B',
+        }}
+        transition={{ duration: 0.3 }}
+        className="text-[12px] md:text-sm"
+      >
+        {label}
+      </motion.p>
+    </motion.div>
+  );
+};
+
+const OpportunityItem = ({ title, description, icon, index }) => (
+  <motion.div
+    initial={{ opacity: 0, x: -20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay: index * 0.1 }}
+    whileHover={{ x: 5, boxShadow: '0px 18px 45px rgba(15,23,42,0.12)' }}
+    className="flex items-start gap-3 md:gap-4 rounded-xl md:rounded-2xl bg-white/75 backdrop-blur-sm px-4 py-4 md:px-6 md:py-6 shadow-[0_14px_35px_rgba(15,23,42,0.08)] border border-white/80"
+  >
     <div className="flex-shrink-0">
-      <div className="w-9 h-9 md:w-11 md:h-11 rounded-xl md:rounded-2xl bg-[#EFF6FF] flex items-center justify-center">
+      <motion.div
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.3, delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
+        className="w-9 h-9 md:w-11 md:h-11 rounded-xl md:rounded-2xl bg-[#EFF6FF] flex items-center justify-center"
+      >
         <img src={icon} alt="" className="w-5 h-5 md:w-6 md:h-6" />
-      </div>
+      </motion.div>
     </div>
     <div>
       <p className="text-[13px] md:text-sm lg:text-base font-semibold text-[#0F172A]">{title}</p>
       <p className="mt-0.5 md:mt-1 text-[12px] md:text-sm text-[#64748B] leading-relaxed">{description}</p>
     </div>
-  </div>
+  </motion.div>
 );
 
-const Tag = ({ children, icon }) => (
-  <div className="flex flex-col items-center justify-center rounded-lg md:rounded-xl bg-[#F1F5F9] px-3 py-2 md:px-4 md:py-3 text-[11px] md:text-xs font-medium text-[#0F172A] gap-1.5 md:gap-2">
+const Tag = ({ children, icon, index }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+    whileHover={{ scale: 1.05, y: -2 }}
+    className="flex flex-col items-center justify-center rounded-lg md:rounded-xl bg-[#F1F5F9] px-3 py-2 md:px-4 md:py-3 text-[11px] md:text-xs font-medium text-[#0F172A] gap-1.5 md:gap-2"
+  >
     {icon && <img src={icon} alt="" className="w-5 h-5 md:w-6 md:h-6" />}
     {children}
-  </div>
+  </motion.div>
 );
 
 const DocumentedSuccess = () => {
@@ -128,7 +200,7 @@ const DocumentedSuccess = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <ResultCard icon={item.icon} value={item.value} label={item.label} />
+              <ResultCard icon={item.icon} value={item.value} label={item.label} index={index} />
             </motion.div>
           ))}
         </div>
@@ -152,12 +224,13 @@ const DocumentedSuccess = () => {
             </p>
 
             <div className="space-y-3 md:space-y-5">
-              {opportunities.map((item) => (
+              {opportunities.map((item, index) => (
                 <OpportunityItem
                   key={item.id}
                   title={item.title}
                   description={item.description}
                   icon={item.icon}
+                  index={index}
                 />
               ))}
             </div>
@@ -198,9 +271,9 @@ const DocumentedSuccess = () => {
                   </p>
 
                   <div className="mt-4 md:mt-6 grid grid-cols-3 gap-2 md:gap-3">
-                    <Tag icon={fastIcon}>Fast</Tag>
-                    <Tag icon={strategicIcon}>Strategic</Tag>
-                    <Tag icon={profitableIcon}>Profitable</Tag>
+                    <Tag icon={fastIcon} index={0}>Fast</Tag>
+                    <Tag icon={strategicIcon} index={1}>Strategic</Tag>
+                    <Tag icon={profitableIcon} index={2}>Profitable</Tag>
                   </div>
                 </div>
               </div>

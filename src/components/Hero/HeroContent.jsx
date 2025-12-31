@@ -66,9 +66,9 @@ const HeroContent = () => {
       </motion.p>
 
       {/* CTA Buttons */}
-      <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row flex-wrap gap-4">
+      <motion.div variants={itemVariants} className="mt-8 flex flex-col sm:flex-row flex-wrap gap-4 items-center sm:items-start">
         <Link to="/work-with-me#contact-form" className="w-full sm:w-auto">
-          <Button variant="primary" className="w-full sm:w-auto">
+          <Button variant="primary" className="w-full sm:w-auto justify-center">
             Start Your Growth Assessment
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -76,7 +76,7 @@ const HeroContent = () => {
           </Button>
         </Link>
         <Link to="/work-with-me#contact-form" className="w-full sm:w-auto">
-          <Button variant="outline" className="w-full sm:w-auto">
+          <Button variant="outline" className="w-full sm:w-auto justify-center">
             See If You Qualify
           </Button>
         </Link>

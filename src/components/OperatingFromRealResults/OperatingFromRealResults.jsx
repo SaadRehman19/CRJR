@@ -69,26 +69,45 @@ const CapabilityItem = ({ title, description }) => (
   </div>
 );
 
-const IndustryRow = ({ label, progress, icon }) => (
-  <div className="bg-white/8 rounded-[14px] px-4 py-3 flex flex-col gap-2">
+const IndustryRow = ({ label, progress, icon, index }) => (
+  <motion.div
+    initial={{ opacity: 0, x: 20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    className="bg-white/8 rounded-[14px] px-4 py-3 flex flex-col gap-2"
+  >
     <div className="flex items-center justify-between text-white">
       <span className="text-[18px] leading-[28px] font-semibold tracking-normal">{label}</span>
-      {icon && <img src={icon} alt="" className="w-5 h-5" />}
+      {icon && (
+        <motion.img
+          initial={{ rotate: -180, opacity: 0 }}
+          whileInView={{ rotate: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+          src={icon}
+          alt=""
+          className="w-5 h-5"
+        />
+      )}
     </div>
     <div className="w-full h-1.5 rounded-full bg-slate-600 overflow-hidden">
-      <div
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: `${progress}%` }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay: index * 0.1 + 0.3, ease: "easeOut" }}
         className="h-full rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#38BDF8]"
-        style={{ width: `${progress}%` }}
       />
     </div>
-  </div>
+  </motion.div>
 );
 
 const OperatingFromRealResults = () => {
   return (
     <section className="w-full bg-white py-16 md:py-24 px-6 lg:px-20">
       <div className="max-w-[1216px] mx-auto">
-        <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left Side - Copy & Capabilities */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -134,12 +153,13 @@ const OperatingFromRealResults = () => {
               </h3>
 
               <div className="space-y-3">
-                {industries.map((industry) => (
+                {industries.map((industry, index) => (
                   <IndustryRow
                     key={industry.id}
                     label={industry.label}
                     progress={industry.progress}
                     icon={industry.icon}
+                    index={index}
                   />
                 ))}
               </div>

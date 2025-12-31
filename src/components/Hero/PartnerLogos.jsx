@@ -26,7 +26,7 @@ const PartnerLogos = () => {
             key={logo.alt}
             src={logo.src}
             alt={logo.alt}
-            className="h-[28px] md:h-[36px] lg:h-[44px] object-contain"
+            className="h-[40px] md:h-[44px] lg:h-[48px] object-contain"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.3 + index * 0.1 }}

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import brandInnovationIcon from '../../assets/brand_innovation.svg';
 import marketplaceMasteryIcon from '../../assets/marketplace_mystery.svg';
 import operationalExcellenceIcon from '../../assets/operational_excellence.svg';
@@ -38,36 +39,49 @@ const ecosystemPillars = [
   },
 ];
 
-const EcosystemCard = ({ title, description, stats, variant, icon }) => {
+const EcosystemCard = ({ title, description, stats, variant, icon, index }) => {
   const isDarkByDefault = variant === 'dark';
   const [isHovered, setIsHovered] = useState(false);
 
   const isDark = isDarkByDefault || isHovered;
 
   return (
-    <div
-      className={`rounded-[16px] md:rounded-[24px] p-5 md:p-6 flex flex-col h-full cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl ${
-        isDark ? 'bg-[#102A43]' : ''
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, delay: index * 0.15 }}
+      whileHover={{ scale: 1.05, y: -8 }}
+      whileTap={{ scale: 0.98 }}
+      animate={{
+        background: isDark
+          ? 'linear-gradient(135deg, #102A43 0%, #0A1929 100%)'
+          : 'linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(249, 250, 251, 1) 100%)',
+      }}
+      className={`rounded-[16px] md:rounded-[24px] p-5 md:p-6 flex flex-col h-full cursor-pointer transition-all duration-300 ease-in-out border-2 ${
+        isDark ? 'border-[#1B9DD9]' : 'border-transparent'
       }`}
-      style={
-        isDark
-          ? {}
-          : {
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(249, 250, 251, 1) 100%)',
-              boxShadow: '0px 10px 15px 0px rgba(0, 0, 0, 0.1), 0px 4px 6px 0px rgba(0, 0, 0, 0.1)',
-            }
-      }
+      style={{ boxShadow: '0px 10px 15px 0px rgba(0, 0, 0, 0.1), 0px 4px 6px 0px rgba(0, 0, 0, 0.1)' }}
       onMouseEnter={() => !isDarkByDefault && setIsHovered(true)}
       onMouseLeave={() => !isDarkByDefault && setIsHovered(false)}
     >
       {/* Icon */}
-      <div
+      <motion.div
+        initial={{ scale: 0, rotate: -180 }}
+        whileInView={{ scale: 1, rotate: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.15 + 0.2, type: "spring", stiffness: 200 }}
         className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-4 transition-all duration-500 ${
           isDark ? 'bg-white/20' : 'bg-[#e5e7eb]'
         }`}
       >
-        <img src={icon} alt="" className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-500 hover:rotate-12" />
-      </div>
+        <motion.img
+          whileHover={{ rotate: 12, scale: 1.1 }}
+          src={icon}
+          alt=""
+          className="w-5 h-5 md:w-6 md:h-6"
+        />
+      </motion.div>
 
       {/* Title */}
       <h3 className={`text-[18px] md:text-xl font-bold mb-2 md:mb-3 leading-tight transition-colors duration-500 ${isDark ? 'text-white' : 'text-[#102A43]'}`}>
@@ -81,8 +95,15 @@ const EcosystemCard = ({ title, description, stats, variant, icon }) => {
 
       {/* Stats */}
       <div className="flex gap-4 md:gap-6">
-        {stats.map((stat, index) => (
-          <div key={index} className="transition-transform duration-300 hover:translate-y-[-2px]">
+        {stats.map((stat, statIndex) => (
+          <motion.div
+            key={statIndex}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.15 + 0.4 + statIndex * 0.1 }}
+            whileHover={{ y: -2 }}
+          >
             <p
               className={`text-[20px] md:text-2xl font-bold transition-colors duration-500 ${isDark ? 'text-white' : ''}`}
               style={!isDark ? {
@@ -97,10 +118,10 @@ const EcosystemCard = ({ title, description, stats, variant, icon }) => {
             <p className={`text-[11px] md:text-xs transition-colors duration-500 ${isDark ? 'text-white/60' : 'text-[#475569]'}`}>
               {stat.label}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -109,35 +130,46 @@ const CRJREcosystem = () => {
     <section className="w-full py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-20 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-[28px] md:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-3 md:mb-4 leading-tight">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-8 md:mb-12"
+        >
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-[28px] md:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-3 md:mb-4 leading-tight"
+          >
             The CRJR Ventures Ecosystem
-          </h2>
-          <p className="text-[15px] md:text-lg lg:text-xl text-[#64748B] max-w-3xl mx-auto leading-relaxed px-4 md:px-0">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-[15px] md:text-lg lg:text-xl text-[#64748B] max-w-3xl mx-auto leading-relaxed px-4 md:px-0"
+          >
             A vertically integrated portfolio of companies spanning marketplace operations,
             brand development, and category-specific ventures across multiple industries.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Ecosystem Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {ecosystemPillars.map((pillar, index) => (
-            <div
+            <EcosystemCard
               key={index}
-              className="animate-fadeInUp"
-              style={{
-                animationDelay: `${index * 150}ms`,
-                animationFillMode: 'backwards'
-              }}
-            >
-              <EcosystemCard
-                title={pillar.title}
-                description={pillar.description}
-                stats={pillar.stats}
-                variant={pillar.variant}
-                icon={pillar.icon}
-              />
-            </div>
+              title={pillar.title}
+              description={pillar.description}
+              stats={pillar.stats}
+              variant={pillar.variant}
+              icon={pillar.icon}
+              index={index}
+            />
           ))}
         </div>
       </div>

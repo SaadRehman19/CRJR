@@ -8,10 +8,10 @@ const contactMethods = [
   {
     id: 1,
     label: 'Email',
-    description: '',
-    value: 'info@crjrventures.com',
+    description: 'info@crjrventures.com',
+    value: null,
     type: 'email',
-    url: null,
+    url: 'mailto:info@crjrventures.com',
   },
   {
     id: 2,

@@ -144,7 +144,7 @@ const ProvenGrowth = () => {
               </div>
               <div className="mt-5 md:mt-6 pt-5 md:pt-6 border-t border-[#374151]">
                 <Link
-                  to="/work-with-me#contact-form"
+                  to="/work-with-me#partnership-opportunities"
                   className="inline-flex items-center gap-2 text-[13px] md:text-[14px] text-white hover:text-gray-300 transition-colors cursor-pointer"
                 >
                   View detailed case studies

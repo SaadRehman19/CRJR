@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import tmaLogo from "../../assets/tma-logo.png";
 import iconListingOptimization from "../../assets/listing_optimization.svg";
 import iconAPlusContent from "../../assets/A+_Content.svg";
@@ -126,8 +127,23 @@ const MachineAgencyCard = () => {
             {/* Left Column */}
             <div className="flex-1 space-y-4 md:space-y-5">
               {servicesLeft.map((service, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <img src={service.icon} alt="" className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <motion.img
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
+                    src={service.icon}
+                    alt=""
+                    className="w-5 h-5 md:w-6 md:h-6 shrink-0"
+                  />
                   <div>
                     <p className="text-[13px] md:text-[14px] font-semibold text-[#0f172a] leading-[20px]">
                       {service.title}
@@ -136,15 +152,30 @@ const MachineAgencyCard = () => {
                       {service.description}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             {/* Right Column */}
             <div className="flex-1 space-y-4 md:space-y-5">
               {servicesRight.map((service, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <img src={service.icon} alt="" className="w-5 h-5 md:w-6 md:h-6 shrink-0" />
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: (index + 3) * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <motion.img
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: (index + 3) * 0.1 + 0.2, type: "spring", stiffness: 200 }}
+                    src={service.icon}
+                    alt=""
+                    className="w-5 h-5 md:w-6 md:h-6 shrink-0"
+                  />
                   <div>
                     <p className="text-[13px] md:text-[14px] font-semibold text-[#0f172a] leading-[20px]">
                       {service.title}
@@ -153,20 +184,31 @@ const MachineAgencyCard = () => {
                       {service.description}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
 
           {/* Marketplace Expansion Badge Section */}
-          <div className="bg-[#f9fafb] rounded-[10px] md:rounded-[12px] p-3 md:p-4 mt-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="bg-[#f9fafb] rounded-[10px] md:rounded-[12px] p-3 md:p-4 mt-auto"
+          >
             <h5 className="text-[13px] md:text-[14px] font-semibold text-[#0f172a] mb-2 md:mb-3 leading-[20px]">
               Marketplace Expansion
             </h5>
             <div className="flex flex-wrap gap-2">
               {marketplaces.map((marketplace, index) => (
-                <span
+                <motion.span
                   key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
                   className="inline-flex items-center gap-2 px-2.5 md:px-3 py-1.5 md:py-2 bg-white rounded-[8px] text-[13px] md:text-[14px] text-[#475569]"
                 >
                   <img
@@ -175,10 +217,10 @@ const MachineAgencyCard = () => {
                     className="w-4 h-4 md:w-5 md:h-5"
                   />
                   {marketplace.name}
-                </span>
+                </motion.span>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

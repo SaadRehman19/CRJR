@@ -29,7 +29,7 @@ const ArrowRightIcon = () => (
 const PartnershipOpportunities = () => {
   const navigate = useNavigate();
   return (
-    <section className="w-full bg-white py-12 md:py-16 lg:py-24 px-6 md:px-12 lg:px-20">
+    <section id="partnership-opportunities" className="w-full bg-white py-12 md:py-16 lg:py-24 px-6 md:px-12 lg:px-20">
       <div className="max-w-[1216px] mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

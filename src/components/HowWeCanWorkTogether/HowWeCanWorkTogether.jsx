@@ -1,3 +1,4 @@
+import React from 'react';
 import brandIcon from '../../assets/brand_advisory.svg';
 import amazonConsultingIcon from '../../assets/amazon_consulting.svg';
 import activeCompaniesIcon from '../../assets/active_companies.svg';
@@ -100,26 +101,90 @@ const CheckBullet = ({ tickIcon }) => (
   </span>
 );
 
-const ServiceCard = ({ title, description, bullets, icon, tickIcon }) => (
-  <div
-    className="bg-white rounded-[18px] px-6 py-7 border border-[#E5E7EB] flex flex-col h-full"
-    style={{ boxShadow: '0px 18px 45px rgba(15, 23, 42, 0.08)' }}
-  >
-    <div className="w-12 h-12 rounded-2xl bg-[#EFF6FF] flex items-center justify-center mb-5">
-      <ServiceIcon icon={icon} />
-    </div>
-    <h3 className="text-lg md:text-xl font-semibold text-[#0F172A] mb-2">{title}</h3>
-    <p className="text-sm text-[#475569] leading-relaxed mb-4 flex-grow">{description}</p>
-    <ul className="space-y-2">
-      {bullets.map((item) => (
-        <li key={item} className="flex items-start gap-2 text-sm text-[#475569]">
-          <CheckBullet tickIcon={tickIcon} />
-          <span className="mt-0.5">{item}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+const ServiceCard = ({ title, description, bullets, icon, tickIcon, index }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  return (
+    <motion.div
+      whileHover={{ scale: 1.05, y: -8 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      animate={{
+        background: isHovered
+          ? 'linear-gradient(135deg, #1B9DD9 0%, #063482 100%)'
+          : 'linear-gradient(135deg, #ffffff 0%, #ffffff 100%)',
+        borderColor: isHovered ? '#1B9DD9' : '#E5E7EB',
+      }}
+      transition={{ duration: 0.3 }}
+      className="rounded-[18px] px-6 py-7 border-2 flex flex-col h-full cursor-pointer"
+      style={{ boxShadow: '0px 18px 45px rgba(15, 23, 42, 0.08)' }}
+    >
+      <motion.div
+        initial={{ scale: 0, rotate: -180 }}
+        whileInView={{ scale: 1, rotate: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2, type: "spring", stiffness: 200 }}
+        whileHover={{ rotate: 5, scale: 1.05 }}
+        animate={{
+          backgroundColor: isHovered ? 'rgba(255, 255, 255, 0.2)' : '#EFF6FF',
+        }}
+        className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
+      >
+        <motion.div
+          animate={{
+            filter: isHovered ? 'brightness(0) invert(1)' : 'brightness(1) invert(0)',
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          <ServiceIcon icon={icon} />
+        </motion.div>
+      </motion.div>
+      <motion.h3
+        animate={{ color: isHovered ? '#ffffff' : '#0F172A' }}
+        transition={{ duration: 0.3 }}
+        className="text-lg md:text-xl font-semibold mb-2"
+      >
+        {title}
+      </motion.h3>
+      <motion.p
+        animate={{ color: isHovered ? 'rgba(255, 255, 255, 0.9)' : '#475569' }}
+        transition={{ duration: 0.3 }}
+        className="text-sm leading-relaxed mb-4 flex-grow"
+      >
+        {description}
+      </motion.p>
+      <ul className="space-y-2">
+        {bullets.map((item, bulletIndex) => (
+          <motion.li
+            key={item}
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: 0.3 + bulletIndex * 0.1 }}
+            className="flex items-start gap-2 text-sm"
+          >
+            <motion.span
+              animate={{
+                filter: isHovered ? 'brightness(0) invert(1)' : 'brightness(1) invert(0)',
+              }}
+              transition={{ duration: 0.3 }}
+              className="flex h-6 w-6 items-center justify-center"
+            >
+              <img src={tickIcon} alt="" className="h-3.5 w-3.5" />
+            </motion.span>
+            <motion.span
+              animate={{ color: isHovered ? 'rgba(255, 255, 255, 0.9)' : '#475569' }}
+              transition={{ duration: 0.3 }}
+              className="mt-0.5"
+            >
+              {item}
+            </motion.span>
+          </motion.li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+};
 
 const HowWeCanWorkTogether = () => {
   return (
@@ -156,6 +221,7 @@ const HowWeCanWorkTogether = () => {
                 bullets={service.bullets}
                 icon={service.icon}
                 tickIcon={service.tickIcon}
+                index={index}
               />
             </motion.div>
           ))}

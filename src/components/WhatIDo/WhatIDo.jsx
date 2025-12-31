@@ -67,9 +67,9 @@ const ServiceCard = ({ title, description, icon, graphic, index }) => {
       <ServiceIcon icon={icon} />
       <h3 className="mt-4 md:mt-6 text-[18px] md:text-[20px] font-bold text-[#0a0e27] leading-[1.3]">{title}</h3>
       <p className="mt-2 md:mt-3 text-[13px] md:text-[14px] text-[#4b5563] leading-[1.5]">{description}</p>
-      {/* Show graphic only on desktop (md and up), hide on mobile */}
-      <div className="hidden md:flex mt-6 md:mt-8 items-center justify-center h-[120px] md:h-[160px]">
-        <img src={graphic} alt="" className="w-auto max-w-full object-contain" />
+      {/* Show graphic on all screen sizes */}
+      <div className="flex mt-4 md:mt-6 lg:mt-8 items-center justify-center h-[100px] md:h-[140px] lg:h-[160px]">
+        <img src={graphic} alt="" className="w-auto max-w-full h-full object-contain" />
       </div>
     </motion.div>
   );
@@ -77,7 +77,7 @@ const ServiceCard = ({ title, description, icon, graphic, index }) => {
 
 const WhatIDo = () => {
   return (
-    <section className="w-full bg-white py-12 md:py-16 lg:py-24 px-6 md:px-12 lg:px-20">
+    <section className="w-full bg-white pt-6 md:pt-8 lg:pt-12 pb-12 md:pb-16 lg:pb-24 px-6 md:px-12 lg:px-20">
       <div className="max-w-[1280px] mx-auto">
         {/* Header */}
         <div className="text-center mb-10 md:mb-12 lg:mb-16">

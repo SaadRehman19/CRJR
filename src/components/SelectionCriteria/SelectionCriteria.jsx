@@ -3,6 +3,7 @@ import operationalIcon from '../../assets/operational.svg';
 import financialCommitmentIcon from '../../assets/financial_commitment.svg';
 import foundersWithVisionIcon from '../../assets/founders_with_vision.svg';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const criteriaData = [
   {
@@ -35,16 +36,28 @@ const criteriaData = [
   },
 ];
 
-const CriteriaCard = ({ title, description, icon }) => (
-  <div className="flex gap-3 md:gap-4 items-start">
-    <div className="w-5 h-5 md:w-6 md:h-6 shrink-0 mt-1">
+const CriteriaCard = ({ title, description, icon, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    className="flex gap-3 md:gap-4 items-start"
+  >
+    <motion.div
+      initial={{ scale: 0 }}
+      whileInView={{ scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
+      className="w-5 h-5 md:w-6 md:h-6 shrink-0 mt-1"
+    >
       <img src={icon} alt="" className="w-full h-full" />
-    </div>
+    </motion.div>
     <div>
       <h4 className="text-[15px] md:text-[16px] font-bold text-white leading-[1.4] mb-2">{title}</h4>
       <p className="text-[13px] md:text-[14px] text-[#94a3b8] leading-[1.5]">{description}</p>
     </div>
-  </div>
+  </motion.div>
 );
 
 const FunnelCard = ({ icon, label, percentage, bgColor }) => (
@@ -69,43 +82,86 @@ const SelectionCriteria = () => {
       <div className="max-w-[1280px] mx-auto">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start mb-12 md:mb-16">
           {/* Left Side - Header and Button */}
-          <div className="flex-1 w-full lg:w-[576px]">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+            className="flex-1 w-full lg:w-[576px]"
+          >
             {/* Badge */}
-            <div className="flex items-center gap-3 mb-4 md:mb-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex items-center gap-3 mb-4 md:mb-6"
+            >
               <div className="w-2 h-2 bg-[#669fff] rounded-full"></div>
               <span className="text-[13px] md:text-[14px] font-medium text-[#669fff] tracking-[0.7px]">
                 Selection Criteria
               </span>
-            </div>
+            </motion.div>
 
             {/* Headline */}
-            <h2 className="text-[26px] md:text-[32px] lg:text-[36px] font-bold text-white leading-[1.2] mb-4 md:mb-6">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-[26px] md:text-[32px] lg:text-[36px] font-bold text-white leading-[1.2] mb-4 md:mb-6"
+            >
               We partner only with brands that meet our standards.
-            </h2>
+            </motion.h2>
 
             {/* Description */}
-            <p className="text-[14px] md:text-[15px] lg:text-[16px] text-[#94a3b8] leading-[1.6] mb-6 md:mb-8">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-[14px] md:text-[15px] lg:text-[16px] text-[#94a3b8] leading-[1.6] mb-6 md:mb-8"
+            >
               CRJR Ventures partners with brands that demonstrate strong fundamental and strong
               alignment with our model.
-            </p>
+            </motion.p>
 
             {/* Button */}
-            <Link to="/work-with-me#contact-form" className="w-full sm:w-auto inline-block">
-              <button className="w-full sm:w-auto bg-white rounded-[30px] px-6 md:px-8 py-3 flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors">
-                <span className="text-[14px] md:text-[16px] font-bold text-[#0f172a]">Apply for Brand Evaluation</span>
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#0f172a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </Link>
-          </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <Link to="/work-with-me#contact-form" className="w-full sm:w-auto inline-block">
+                <button className="w-full sm:w-auto bg-white rounded-[30px] px-6 md:px-8 py-3 flex items-center justify-center gap-2 hover:bg-gray-50 hover:scale-105 transition-all duration-300">
+                  <span className="text-[14px] md:text-[16px] font-bold text-[#0f172a]">Apply for Brand Evaluation</span>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#0f172a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </Link>
+            </motion.div>
+          </motion.div>
 
           {/* Right Side - Funnel */}
-          <div className="flex-1 w-full lg:w-[576px]">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex-1 w-full lg:w-[576px]"
+          >
             {/* Funnel Visualization */}
             <div className="relative">
               {/* Funnel Step 1 */}
-              <div className="relative mb-3">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="relative mb-3"
+              >
                 <div className="flex items-center gap-3 md:gap-4 bg-[#1e3a5f] rounded-[12px] p-3 md:p-4 shadow-lg relative z-10">
                   <div className="w-10 h-10 bg-white rounded-[8px] flex items-center justify-center shrink-0">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -130,10 +186,16 @@ const SelectionCriteria = () => {
                 <div className="absolute left-0 -bottom-3 w-full h-6 flex items-center">
                   <div className="w-[85%] h-3 bg-gradient-to-r from-[#1B9DD9] to-[#063482] rounded-full"></div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Funnel Step 2 */}
-              <div className="relative mb-3 ml-8 md:ml-12">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="relative mb-3 ml-8 md:ml-12"
+              >
                 <div className="flex items-center gap-3 md:gap-4 bg-[#1e3a5f] rounded-[12px] p-3 md:p-4 shadow-lg relative z-10">
                   <div className="w-10 h-10 bg-white rounded-[8px] flex items-center justify-center shrink-0">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -158,10 +220,16 @@ const SelectionCriteria = () => {
                 <div className="absolute left-0 -bottom-3 w-full h-6 flex items-center">
                   <div className="w-[70%] h-3 bg-gradient-to-r from-[#1B9DD9] to-[#063482] rounded-full"></div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Funnel Step 3 */}
-              <div className="relative ml-16 md:ml-24">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                className="relative ml-16 md:ml-24"
+              >
                 <div className="flex items-center gap-3 md:gap-4 bg-[#1e3a5f] rounded-[12px] p-3 md:p-4 shadow-lg relative z-10">
                   <div className="w-10 h-10 bg-white rounded-[8px] flex items-center justify-center shrink-0">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -181,15 +249,15 @@ const SelectionCriteria = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* All Criteria Cards - Bottom Grid (2x2) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
-          {criteriaData.map((item) => (
-            <CriteriaCard key={item.id} title={item.title} description={item.description} icon={item.icon} />
+          {criteriaData.map((item, index) => (
+            <CriteriaCard key={item.id} title={item.title} description={item.description} icon={item.icon} index={index} />
           ))}
         </div>
       </div>
