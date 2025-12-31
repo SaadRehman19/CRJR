@@ -33,11 +33,13 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-8 lg:gap-10">
           {/* Left Side - Logo and Description */}
           <div className="max-w-sm text-center md:text-left">
-            <img
-              src={crjrLogo}
-              alt="CRJR Ventures"
-              className="h-8 md:h-10 w-auto mb-3 md:mb-4 mx-auto md:mx-0"
-            />
+            <Link to="/" className="inline-block">
+              <img
+                src={crjrLogo}
+                alt="CRJR Ventures"
+                className="h-8 md:h-10 w-auto mb-3 md:mb-4 mx-auto md:mx-0 cursor-pointer hover:opacity-80 transition-opacity"
+              />
+            </Link>
             <p className="text-[13px] md:text-[14px] text-[#64748b] leading-[1.6] md:leading-[20px]">
               Building brands and scaling companies globally through operational excellence and
               strategic growth.

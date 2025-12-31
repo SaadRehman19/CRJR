@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const metrics = [
   {
     id: 1,
@@ -141,12 +143,15 @@ const ProvenGrowth = () => {
                 ))}
               </div>
               <div className="mt-5 md:mt-6 pt-5 md:pt-6 border-t border-[#374151]">
-                <button className="flex items-center gap-2 text-[13px] md:text-[14px] text-white hover:text-gray-300 transition-colors">
+                <Link
+                  to="/work-with-me#contact-form"
+                  className="inline-flex items-center gap-2 text-[13px] md:text-[14px] text-white hover:text-gray-300 transition-colors cursor-pointer"
+                >
                   View detailed case studies
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </button>
+                </Link>
               </div>
             </div>
           </div>

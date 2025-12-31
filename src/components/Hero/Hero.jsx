@@ -29,8 +29,8 @@ const Hero = () => {
             <HeroContent />
           </div>
 
-          {/* Right Dashboard - Hidden on Mobile */}
-          <div className="hidden lg:flex flex-1 justify-center lg:justify-end w-full">
+          {/* Right Dashboard - Now visible on all screens */}
+          <div className="flex flex-1 justify-center lg:justify-end w-full">
             <HeroDashboard />
           </div>
         </div>

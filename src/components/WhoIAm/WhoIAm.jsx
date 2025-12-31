@@ -24,28 +24,28 @@ const WhoIAm = () => {
   return (
     <section className="w-full bg-white py-12 md:py-16 lg:py-24 px-6 md:px-12 lg:px-20">
       <div className="max-w-[1280px] mx-auto">
-        <div className="flex flex-col lg:flex-row items-start gap-16">
-          {/* Left Side - Image with Decorative Borders - Hidden on Mobile */}
+        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-16">
+          {/* Left Side - Image with Decorative Borders - Appears below on mobile, left on desktop */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7 }}
-            className="hidden lg:block relative w-[576px] h-[500px] flex-shrink-0"
+            className="order-2 lg:order-1 relative w-full max-w-[400px] mx-auto lg:mx-0 h-[350px] sm:h-[400px] lg:w-[576px] lg:h-[500px] flex-shrink-0"
           >
             {/* Decorative Corner - Top Left */}
             <div
-              className="absolute -top-4 -left-4 w-[96px] h-[96px] border-t-4 border-l-4 border-[#063482] z-20 rounded-tl-[24px]"
+              className="absolute -top-2 -left-2 lg:-top-4 lg:-left-4 w-[60px] h-[60px] lg:w-[96px] lg:h-[96px] border-t-4 border-l-4 border-[#063482] z-20 rounded-tl-[16px] lg:rounded-tl-[24px]"
             ></div>
 
             {/* Decorative Corner - Bottom Right */}
             <div
-              className="absolute -bottom-4 -right-4 w-[96px] h-[96px] border-b-4 border-r-4 border-[#063482] z-20 rounded-br-[24px]"
+              className="absolute -bottom-2 -right-2 lg:-bottom-4 lg:-right-4 w-[60px] h-[60px] lg:w-[96px] lg:h-[96px] border-b-4 border-r-4 border-[#063482] z-20 rounded-br-[16px] lg:rounded-br-[24px]"
             ></div>
 
             {/* Image Container */}
             <div
-              className="relative w-full h-full rounded-[16px] overflow-hidden shadow-[0px_25px_50px_0px_rgba(0,0,0,0.25)]"
+              className="relative w-full h-full rounded-[12px] lg:rounded-[16px] overflow-hidden shadow-[0px_15px_30px_0px_rgba(0,0,0,0.2)] lg:shadow-[0px_25px_50px_0px_rgba(0,0,0,0.25)]"
             >
               {/* Main Image from Figma */}
               <img
@@ -56,13 +56,13 @@ const WhoIAm = () => {
             </div>
           </motion.div>
 
-          {/* Right Side - Content */}
+          {/* Right Side - Content - Appears above on mobile, right on desktop */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex-1 w-full lg:w-[576px]"
+            className="order-1 lg:order-2 flex-1 w-full lg:w-[576px]"
           >
             {/* Section Badge */}
             <div className="flex items-center gap-3 mb-4 md:mb-6">

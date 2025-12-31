@@ -6,9 +6,9 @@ import {
   MCMNutritionCard,
   AunerPetCard,
   CRJRVenturesCard,
-  CRJREcosystem,
-  ReadyToScaleCTA
+  CRJREcosystem
 } from '../components/companies';
+import { ReadyToScale } from '../components/ReadyToScale';
 
 const MyCompaniesPage = () => {
   const companyCards = [
@@ -62,7 +62,7 @@ const MyCompaniesPage = () => {
       <CRJREcosystem />
 
       {/* Ready to Scale CTA Section */}
-      <ReadyToScaleCTA />
+      <ReadyToScale />
     </>
   );
 };

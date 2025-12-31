@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import brandInnovationIcon from '../../assets/brand_innovation.svg';
 import marketplaceMasteryIcon from '../../assets/marketplace_mystery.svg';
 import operationalExcellenceIcon from '../../assets/operational_excellence.svg';
@@ -38,11 +39,14 @@ const ecosystemPillars = [
 ];
 
 const EcosystemCard = ({ title, description, stats, variant, icon }) => {
-  const isDark = variant === 'dark';
+  const isDarkByDefault = variant === 'dark';
+  const [isHovered, setIsHovered] = useState(false);
+
+  const isDark = isDarkByDefault || isHovered;
 
   return (
     <div
-      className={`rounded-[16px] md:rounded-[24px] p-5 md:p-6 flex flex-col h-full ${
+      className={`rounded-[16px] md:rounded-[24px] p-5 md:p-6 flex flex-col h-full cursor-pointer transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl ${
         isDark ? 'bg-[#102A43]' : ''
       }`}
       style={
@@ -53,32 +57,34 @@ const EcosystemCard = ({ title, description, stats, variant, icon }) => {
               boxShadow: '0px 10px 15px 0px rgba(0, 0, 0, 0.1), 0px 4px 6px 0px rgba(0, 0, 0, 0.1)',
             }
       }
+      onMouseEnter={() => !isDarkByDefault && setIsHovered(true)}
+      onMouseLeave={() => !isDarkByDefault && setIsHovered(false)}
     >
       {/* Icon */}
       <div
-        className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-4 ${
+        className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-4 transition-all duration-500 ${
           isDark ? 'bg-white/20' : 'bg-[#e5e7eb]'
         }`}
       >
-        <img src={icon} alt="" className="w-5 h-5 md:w-6 md:h-6" />
+        <img src={icon} alt="" className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-500 hover:rotate-12" />
       </div>
 
       {/* Title */}
-      <h3 className={`text-[18px] md:text-xl font-bold mb-2 md:mb-3 leading-tight ${isDark ? 'text-white' : 'text-[#102A43]'}`}>
+      <h3 className={`text-[18px] md:text-xl font-bold mb-2 md:mb-3 leading-tight transition-colors duration-500 ${isDark ? 'text-white' : 'text-[#102A43]'}`}>
         {title}
       </h3>
 
       {/* Description */}
-      <p className={`text-[13px] md:text-sm leading-relaxed mb-4 md:mb-6 flex-grow ${isDark ? 'text-white/70' : 'text-[#475569]'}`}>
+      <p className={`text-[13px] md:text-sm leading-relaxed mb-4 md:mb-6 flex-grow transition-colors duration-500 ${isDark ? 'text-white/70' : 'text-[#475569]'}`}>
         {description}
       </p>
 
       {/* Stats */}
       <div className="flex gap-4 md:gap-6">
         {stats.map((stat, index) => (
-          <div key={index}>
+          <div key={index} className="transition-transform duration-300 hover:translate-y-[-2px]">
             <p
-              className={`text-[20px] md:text-2xl font-bold ${isDark ? 'text-white' : ''}`}
+              className={`text-[20px] md:text-2xl font-bold transition-colors duration-500 ${isDark ? 'text-white' : ''}`}
               style={!isDark ? {
                 background: 'linear-gradient(180deg, #1B9DD9 0%, #063482 100%)',
                 WebkitBackgroundClip: 'text',
@@ -88,7 +94,7 @@ const EcosystemCard = ({ title, description, stats, variant, icon }) => {
             >
               {stat.value}
             </p>
-            <p className={`text-[11px] md:text-xs ${isDark ? 'text-white/60' : 'text-[#475569]'}`}>
+            <p className={`text-[11px] md:text-xs transition-colors duration-500 ${isDark ? 'text-white/60' : 'text-[#475569]'}`}>
               {stat.label}
             </p>
           </div>
@@ -116,14 +122,22 @@ const CRJREcosystem = () => {
         {/* Ecosystem Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {ecosystemPillars.map((pillar, index) => (
-            <EcosystemCard
+            <div
               key={index}
-              title={pillar.title}
-              description={pillar.description}
-              stats={pillar.stats}
-              variant={pillar.variant}
-              icon={pillar.icon}
-            />
+              className="animate-fadeInUp"
+              style={{
+                animationDelay: `${index * 150}ms`,
+                animationFillMode: 'backwards'
+              }}
+            >
+              <EcosystemCard
+                title={pillar.title}
+                description={pillar.description}
+                stats={pillar.stats}
+                variant={pillar.variant}
+                icon={pillar.icon}
+              />
+            </div>
           ))}
         </div>
       </div>

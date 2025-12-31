@@ -36,9 +36,9 @@ const CompaniesHero = () => {
 
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 lg:gap-16">
-          {/* Left Content */}
+          {/* Left Content - appears first on mobile, left on desktop */}
           <motion.div
-            className="flex-1 max-w-xl"
+            className="order-1 flex-1 max-w-xl"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -87,17 +87,17 @@ const CompaniesHero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Image Box - Hidden on mobile */}
+          {/* Right Side - Image Box - appears below on mobile, right on desktop */}
           <motion.div
-            className="hidden lg:flex flex-1 relative justify-center lg:justify-end"
+            className="order-2 flex flex-1 relative justify-center lg:justify-end w-full"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="relative">
+            <div className="relative w-full max-w-[400px] lg:max-w-[500px]">
               {/* Blue glow behind image */}
               <div
-                className="absolute rounded-[18px]"
+                className="absolute rounded-[12px] lg:rounded-[18px]"
                 style={{
                   background: 'linear-gradient(180deg, rgba(59, 130, 246, 0.4) 0%, rgba(14, 165, 233, 0.3) 100%)',
                   filter: 'blur(40px)',
@@ -111,10 +111,7 @@ const CompaniesHero = () => {
 
               {/* Main image container */}
               <div
-                className="relative bg-white rounded-[18px] overflow-hidden z-10"
-                style={{
-                  maxWidth: '500px',
-                }}
+                className="relative bg-white rounded-[12px] lg:rounded-[18px] overflow-hidden z-10 shadow-xl"
               >
                 <img
                   src={companiesHeroImage}
