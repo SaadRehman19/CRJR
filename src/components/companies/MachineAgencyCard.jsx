@@ -68,7 +68,7 @@ const MachineAgencyCard = () => {
         {/* Left Column - Header & Stats (Dark Background) */}
         <div className="bg-[#102a43] p-6 md:p-8 lg:w-[45%] flex flex-col rounded-t-[16px] md:rounded-t-[24px] lg:rounded-l-[24px] lg:rounded-tr-none">
           {/* Logo Box - aligned with text below */}
-          <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl md:rounded-2xl flex items-center justify-center overflow-hidden mb-4 md:mb-0">
+          <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl md:rounded-2xl flex items-center justify-center overflow-hidden mb-5 md:mb-6">
             <img
               src={tmaLogo}
               alt="CRJR Partners Logo"
@@ -77,17 +77,17 @@ const MachineAgencyCard = () => {
           </div>
 
           {/* Company Name */}
-          <h3 className="text-[24px] md:text-[32px] font-bold text-white mb-2 leading-tight md:leading-[40px]">
+          <h3 className="text-[24px] md:text-[32px] font-bold text-white mb-3 leading-tight md:leading-[40px]">
             The Machine Agency
           </h3>
 
           {/* Tagline */}
-          <p className="text-[13px] md:text-[14px] text-white/70 mb-4 md:mb-6 leading-[20px]">
+          <p className="text-[13px] md:text-[14px] text-white/70 mb-5 md:mb-7 leading-[20px]">
             Amazon Growth Partner | Marketplace Strategy
           </p>
 
           {/* Description */}
-          <p className="text-[13px] md:text-[14px] text-white/80 leading-[20px] mb-4 md:mb-6">
+          <p className="text-[13px] md:text-[14px] text-white/80 leading-[22px] mb-6 md:mb-8">
             My flagship company dedicated to scaling brands across Amazon and
             other online marketplaces with proven systems and operational
             excellence.
@@ -116,16 +116,16 @@ const MachineAgencyCard = () => {
         </div>
 
         {/* Right Column - Services (White Background) */}
-        <div className="p-6 md:p-8 lg:w-[55%] flex flex-col">
+        <div className="p-7 md:p-10 lg:w-[55%] flex flex-col">
           {/* Core Services */}
-          <h4 className="text-[20px] md:text-[24px] font-bold text-[#0f172a] mb-4 md:mb-6 leading-tight md:leading-[32px]">
+          <h4 className="text-[20px] md:text-[24px] font-bold text-[#0f172a] mb-5 md:mb-7 leading-tight md:leading-[32px]">
             Core Services
           </h4>
 
           {/* Single column on mobile, two columns on desktop */}
-          <div className="flex flex-col md:flex-row md:gap-8 mb-6">
+          <div className="flex flex-col md:flex-row md:gap-10 mb-7 md:mb-8">
             {/* Left Column */}
-            <div className="flex-1 space-y-4 md:space-y-5">
+            <div className="flex-1 space-y-10 md:space-y-9">
               {servicesLeft.map((service, index) => (
                 <motion.div
                   key={index}
@@ -133,7 +133,7 @@ const MachineAgencyCard = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-start gap-3"
+                  className="flex items-start gap-4"
                 >
                   <motion.img
                     initial={{ scale: 0 }}
@@ -142,13 +142,13 @@ const MachineAgencyCard = () => {
                     transition={{ duration: 0.3, delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
                     src={service.icon}
                     alt=""
-                    className="w-5 h-5 md:w-6 md:h-6 shrink-0"
+                    className="w-5 h-5 md:w-6 md:h-6 shrink-0 mt-0.5"
                   />
                   <div>
-                    <p className="text-[13px] md:text-[14px] font-semibold text-[#0f172a] leading-[20px]">
+                    <p className="text-[13px] md:text-[14px] font-semibold text-[#0f172a] leading-[20px] mb-2">
                       {service.title}
                     </p>
-                    <p className="text-[13px] md:text-[14px] text-[#4b5563] leading-[20px]">
+                    <p className="text-[13px] md:text-[14px] text-[#4b5563] leading-[24px]">
                       {service.description}
                     </p>
                   </div>
@@ -157,7 +157,7 @@ const MachineAgencyCard = () => {
             </div>
 
             {/* Right Column */}
-            <div className="flex-1 space-y-4 md:space-y-5">
+            <div className="flex-1 space-y-10 md:space-y-9 mt-10 md:mt-0">
               {servicesRight.map((service, index) => (
                 <motion.div
                   key={index}
@@ -165,7 +165,7 @@ const MachineAgencyCard = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: (index + 3) * 0.1 }}
-                  className="flex items-start gap-3"
+                  className="flex items-start gap-4"
                 >
                   <motion.img
                     initial={{ scale: 0 }}
@@ -174,13 +174,13 @@ const MachineAgencyCard = () => {
                     transition={{ duration: 0.3, delay: (index + 3) * 0.1 + 0.2, type: "spring", stiffness: 200 }}
                     src={service.icon}
                     alt=""
-                    className="w-5 h-5 md:w-6 md:h-6 shrink-0"
+                    className="w-5 h-5 md:w-6 md:h-6 shrink-0 mt-0.5"
                   />
                   <div>
-                    <p className="text-[13px] md:text-[14px] font-semibold text-[#0f172a] leading-[20px]">
+                    <p className="text-[13px] md:text-[14px] font-semibold text-[#0f172a] leading-[20px] mb-2">
                       {service.title}
                     </p>
-                    <p className="text-[13px] md:text-[14px] text-[#4b5563] leading-[20px]">
+                    <p className="text-[13px] md:text-[14px] text-[#4b5563] leading-[24px]">
                       {service.description}
                     </p>
                   </div>
@@ -195,12 +195,12 @@ const MachineAgencyCard = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="bg-[#f9fafb] rounded-[10px] md:rounded-[12px] p-3 md:p-4 mt-auto"
+            className="bg-[#f9fafb] rounded-[10px] md:rounded-[12px] p-4 md:p-5 mt-auto"
           >
-            <h5 className="text-[13px] md:text-[14px] font-semibold text-[#0f172a] mb-2 md:mb-3 leading-[20px]">
+            <h5 className="text-[13px] md:text-[14px] font-semibold text-[#0f172a] mb-3 md:mb-4 leading-[20px]">
               Marketplace Expansion
             </h5>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2.5">
               {marketplaces.map((marketplace, index) => (
                 <motion.span
                   key={index}

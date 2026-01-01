@@ -6,7 +6,7 @@ import TrustedByCard from './TrustedByCard';
 const HeroDashboard = () => {
   return (
     <motion.div
-      className="relative w-full max-w-[678px] h-auto aspect-[678/500] mx-auto"
+      className="relative w-full max-w-[678px] h-auto aspect-[678/500] mx-auto mt-2 md:mt-0 overflow-hidden"
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: 0.3 }}

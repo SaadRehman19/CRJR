@@ -22,7 +22,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white overflow-x-hidden w-full max-w-full">
         <Navbar />
         <AnimatedRoutes />
         <Footer />
