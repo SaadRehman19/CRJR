@@ -3,7 +3,12 @@ import HeroDashboard from './HeroDashboard';
 
 const Hero = () => {
   return (
-    <section className="relative w-full bg-white overflow-hidden">
+    <section
+      className="relative w-full overflow-hidden"
+      style={{
+        background: 'radial-gradient(circle at 15% 10%, #EDF7FE 20%, #F5FAFF 25%, transparent 90%), radial-gradient(circle at 95% 50%, #E3F4FD 0%, #F0F9FF 30%, #FFFFFF 60%)'
+      }}
+    >
       {/* Background decorations - Ellipses from Figma */}
       <div className="absolute top-[-80px] right-[1136px] w-[384px] h-[384px] bg-[#eff6ff] opacity-50 rounded-full -z-10"></div>
 

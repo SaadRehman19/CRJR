@@ -94,11 +94,11 @@ const HowWeWork = () => {
     <section
       className="w-full py-12 md:py-16 lg:py-24 px-6 md:px-12 lg:px-20 relative overflow-hidden"
       style={{
-        background: 'linear-gradient(120deg, #f0f9ff 0%, #f8fcff 20%, #ffffff 80%)'
+        background: 'linear-gradient(180deg, #e8f4fd 0%, #f0f8ff 40%, #ffffff 95%)'
       }}
     >
       {/* Decorative gradient orbs - less visible on mobile, positioned on right */}
-      <div className="absolute top-0 right-[-200px] md:right-[20px] w-[400px] md:w-[550px] h-[600px] md:h-[500px] rounded-full bg-[#aee3ff] opacity-15 md:opacity-60 blur-3xl"></div>
+      <div className="absolute top-0 right-[-200px] md:right-[20px] w-[400px] md:w-[550px] h-[600px] md:h-[500px] rounded-full bg-[#c5e7ff] opacity-15 md:opacity-45 blur-3xl"></div>
 
       <div className="max-w-[1216px] mx-auto relative z-10">
         {/* Header */}
