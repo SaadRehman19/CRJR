@@ -2,12 +2,14 @@ import { motion } from 'framer-motion';
 import mcmLogo from '../../assets/mcm-logo.png';
 import crjrPartnersLogo from '../../assets/crjr-partners-logo.png';
 import tmaLogo from '../../assets/tma-logo.png';
+import aunerLogo from '../../assets/auner-logo.png';
 
 const PartnerLogos = () => {
   const logos = [
-    { src: tmaLogo, alt: 'TMA', height: 'h-[44.779px]' },
-    { src: mcmLogo, alt: 'MCM Nutrition', height: 'h-[59.939px]' },
-    { src: crjrPartnersLogo, alt: 'CRJR Partners', height: 'h-[40.075px]' },
+    { src: tmaLogo, alt: 'TMA', mobileHeight: 'h-[40px]', desktopHeight: 'md:h-[44px] lg:h-[48px]' },
+    { src: mcmLogo, alt: 'MCM Nutrition', mobileHeight: 'h-[40px]', desktopHeight: 'md:h-[44px] lg:h-[48px]' },
+    { src: aunerLogo, alt: 'Auner Pet', mobileHeight: 'h-[48px]', desktopHeight: 'md:h-[54px] lg:h-[58px]' },
+    { src: crjrPartnersLogo, alt: 'CRJR Partners', mobileHeight: 'h-[40px]', desktopHeight: 'md:h-[44px] lg:h-[48px]' },
   ];
 
   return (
@@ -18,15 +20,15 @@ const PartnerLogos = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1.2 }}
       >
-        Our Partner logos
+        Our Partner
       </motion.p>
-      <div className="flex items-center justify-center md:justify-start gap-4 md:gap-8">
+      <div className="flex items-center justify-center md:justify-start gap-1 md:gap-3 lg:gap-4 flex-wrap">
         {logos.map((logo, index) => (
           <motion.img
             key={logo.alt}
             src={logo.src}
             alt={logo.alt}
-            className="h-[40px] md:h-[44px] lg:h-[48px] object-contain"
+            className={`${logo.mobileHeight} ${logo.desktopHeight} object-contain`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.3 + index * 0.1 }}

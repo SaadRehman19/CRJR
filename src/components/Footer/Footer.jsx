@@ -95,7 +95,7 @@ const Footer = () => {
         {/* Bottom - Copyright */}
         <div className="mt-6 md:mt-8 lg:mt-10 pt-5 md:pt-6 lg:pt-8 border-t border-[#e5e7eb]">
           <p className="text-[12px] md:text-[13px] text-[#94a3b8] text-center">
-            © 2025 CRJR Ventures. All rights reserved.
+            © 2026 CRJR Ventures. All rights reserved.
           </p>
         </div>
       </div>

@@ -17,12 +17,26 @@ const WorkWithMePage = () => {
     if (location.hash === '#contact-form') {
       // Small delay to ensure the page has fully rendered
       setTimeout(() => {
-        const element = document.getElementById('contact-form');
-        if (element) {
-          element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+        const isMobile = window.innerWidth < 768;
+
+        // On mobile, scroll directly to the form card
+        const targetElement = isMobile
+          ? document.getElementById('send-message-form')
+          : document.getElementById('contact-form');
+
+        if (targetElement) {
+          if (isMobile) {
+            // On mobile, scroll to the form card with offset for better visibility
+            const yOffset = -20; // Small offset for spacing
+            const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          } else {
+            // On desktop, use default scroll behavior to section
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
         }
       }, 100);
     }

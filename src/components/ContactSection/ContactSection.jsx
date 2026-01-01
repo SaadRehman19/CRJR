@@ -279,6 +279,7 @@ const ContactSection = () => {
         {/* Right: Form card */}
         <div className="w-full">
           <div
+            id="send-message-form"
             className="bg-white rounded-[24px] border border-[#E5E7EB] px-6 md:px-8 py-6 md:py-7"
             style={{ boxShadow: '0px 28px 70px rgba(15, 23, 42, 0.18)' }}
           >
