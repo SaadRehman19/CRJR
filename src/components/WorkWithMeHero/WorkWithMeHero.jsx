@@ -108,7 +108,7 @@ const WorkWithMeHero = () => {
               <span className="block text-[#000000]">Why Work </span>
               <span className="block">
                 <span className="bg-gradient-to-r from-[#063482] to-[#0EA5E9] bg-clip-text text-transparent">
-                  With Me?
+                  With CRJR Ventures?
                 </span>
               </span>
             </motion.h1>

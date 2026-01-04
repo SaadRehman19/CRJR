@@ -62,7 +62,7 @@ const HeroContent = () => {
 
       {/* Description */}
       <motion.p variants={itemVariants} className="mt-6 text-[#475569] text-[15px] sm:text-[16px] md:text-[18px] leading-[1.6] md:leading-[30px]">
-        The official portfolio of entrepreneur and brand-builder Cash Riley Jr. — showcasing the companies I own, the brands I've built, and the documented success behind each venture.
+        The official portfolio of entrepreneur and brand-builder Cash Riley Jr. — showcasing the companies he has  built, the brands he has built, and the documented success behind each venture.
       </motion.p>
 
       {/* CTA Buttons */}

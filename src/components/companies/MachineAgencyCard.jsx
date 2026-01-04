@@ -68,7 +68,7 @@ const MachineAgencyCard = () => {
         {/* Left Column - Header & Stats (Dark Background) */}
         <div className="bg-[#102a43] p-6 md:p-8 lg:w-[45%] flex flex-col rounded-t-[16px] md:rounded-t-[24px] lg:rounded-l-[24px] lg:rounded-tr-none">
           {/* Logo Box - aligned with text below */}
-          <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl md:rounded-2xl flex items-center justify-center overflow-hidden mb-5 md:mb-6">
+          <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl flex items-center justify-center overflow-hidden mb-5 md:mb-6 bg-black">
             <img
               src={tmaLogo}
               alt="CRJR Partners Logo"

@@ -4,6 +4,7 @@ import { WorkWithMeHero } from '../components/WorkWithMeHero';
 import { DocumentedSuccess } from '../components/DocumentedSuccess';
 import { WhoIAm } from '../components/WhoIAm';
 import { StrategiesProven } from '../components/StrategiesProven';
+import { WinningStrategy } from '../components/WinningStrategy';
 import { HowWeCanWorkTogether } from '../components/HowWeCanWorkTogether';
 import { OperatingFromRealResults } from '../components/OperatingFromRealResults';
 import { PartnershipOpportunities } from '../components/PartnershipOpportunities';
@@ -46,6 +47,7 @@ const WorkWithMePage = () => {
     <>
       <WorkWithMeHero />
       <StrategiesProven />
+	      <WinningStrategy />
       <OperatingFromRealResults />
 
 		      <DocumentedSuccess />

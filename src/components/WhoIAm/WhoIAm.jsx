@@ -73,8 +73,12 @@ const WhoIAm = () => {
             </div>
 
             {/* Main Headline */}
-            <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-bold text-[#0f172a] leading-[1.2] mb-4 md:mb-6">
-              Founder. Operator. Growth Strategist.
+            <h8 className="text-[28px] md:text-[32px] lg:text-[36px] font-bold text-[#0f172a] leading-[1.2] mb-4 md:mb-6">
+              About Cash Riley Jr.
+            </h8>
+
+             <h2 className="text-[28px] md:text-[32px] lg:text-[26px] text-[#0f172a] leading-[1.2] mb-4 md:mb-6">
+              Entrepreneur. Operator. Growth Strategist.
             </h2>
 
             {/* Bio Paragraph */}

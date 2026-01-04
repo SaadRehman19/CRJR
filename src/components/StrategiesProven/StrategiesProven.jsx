@@ -111,7 +111,7 @@ const StrategiesProven = () => {
           className="text-center mb-12"
         >
           <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-bold text-[#0F172A] leading-[1.2] mb-4">
-            My Strategies Are Proven
+            Strategies Are Proven
           </h2>
           <p className="text-sm md:text-base lg:text-lg text-[#475569] leading-[1.7] max-w-3xl mx-auto">
             From The Machine Agency to MCM Nutrition, AUNER Pet Inc., and CRJR Partners

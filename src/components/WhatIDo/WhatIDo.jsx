@@ -91,7 +91,7 @@ const WhatIDo = () => {
 
           {/* Title */}
           <h2 className="text-[28px] md:text-[32px] lg:text-[36px] font-bold text-[#0f172a] leading-[1.2] mb-4 md:mb-6">
-            What I Do
+            What CRJR Ventures Does
           </h2>
 
           {/* Subtitle */}
