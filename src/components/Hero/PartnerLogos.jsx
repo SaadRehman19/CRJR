@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
 import mcmLogo from '../../assets/mcm-logo.png';
 import crjrPartnersLogo from '../../assets/crjr-partners-logo.png';
-import tmaLogo from '../../assets/tma-logo.png';
+import tmaLogo from '../../assets/test.svg';
 import aunerLogo from '../../assets/auner-logo.png';
 
 const PartnerLogos = () => {
   const logos = [
-    { src: tmaLogo, alt: 'TMA', mobileHeight: 'h-[48px]', desktopHeight: 'md:h-[52px] lg:h-[56px]', extraClasses: 'bg-black rounded-lg md:rounded-xl p-1.5 md:p-2' },
-    { src: mcmLogo, alt: 'MCM Nutrition', mobileHeight: 'h-[40px]', desktopHeight: 'md:h-[44px] lg:h-[48px]', extraClasses: '' },
-    { src: aunerLogo, alt: 'Auner Pet', mobileHeight: 'h-[54px]', desktopHeight: 'md:h-[60px] lg:h-[62px]', extraClasses: '' },
-    { src: crjrPartnersLogo, alt: 'CRJR Partners', mobileHeight: 'h-[40px]', desktopHeight: 'md:h-[44px] lg:h-[48px]', extraClasses: '' },
+    { src: tmaLogo, alt: 'TMA', mobileHeight: 'h-[50px]', desktopHeight: 'md:h-[54px] lg:h-[58px]', width: 'w-[50px] md:w-[54px] lg:w-[58px]', extraClasses: 'rounded-[9px]' },
+    { src: mcmLogo, alt: 'MCM Nutrition', mobileHeight: 'h-[48px]', desktopHeight: 'md:h-[52px] lg:h-[56px]', width: '', extraClasses: '' },
+    { src: crjrPartnersLogo, alt: 'CRJR Partners', mobileHeight: 'h-[45px]', desktopHeight: 'md:h-[48px] lg:h-[52px]', width: '', extraClasses: '' },
+    { src: aunerLogo, alt: 'Auner Pet', mobileHeight: 'h-[68px]', desktopHeight: 'md:h-[66px] lg:h-[78px]', width: '', extraClasses: '' },
   ];
 
   return (
@@ -29,7 +29,7 @@ const PartnerLogos = () => {
               key={logo.alt}
               src={logo.src}
               alt={logo.alt}
-              className={`${logo.mobileHeight} ${logo.desktopHeight} ${logo.extraClasses} object-contain`}
+              className={`${logo.mobileHeight} ${logo.desktopHeight} ${logo.width} ${logo.extraClasses} object-contain`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.3 + index * 0.1 }}

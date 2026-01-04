@@ -77,7 +77,7 @@ const WhoIAm = () => {
               About Cash Riley Jr.
             </h8>
 
-             <h2 className="text-[28px] md:text-[32px] lg:text-[26px] text-[#0f172a] leading-[1.2] mb-4 md:mb-6">
+             <h2 className="text-[16px] sm:text-[18px] md:text-[24px] lg:text-[26px] text-[#0f172a] leading-[1.2] mb-4 md:mb-6 whitespace-nowrap">
               Entrepreneur. Operator. Growth Strategist.
             </h2>
 
