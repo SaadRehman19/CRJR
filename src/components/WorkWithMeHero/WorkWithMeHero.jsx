@@ -94,7 +94,7 @@ const WorkWithMeHero = () => {
               className="inline-flex items-center gap-2 mb-4 md:mb-0"
             >
               <span className="w-2 h-2 bg-[#063482] rounded-full" />
-              <span className="text-[13px] md:text-sm font-medium text-[#486581]">CRJR Venture Partners</span>
+              <span className="text-[13px] md:text-sm font-medium text-[#486581]">CRJR Ventures</span>
             </motion.div>
 
             {/* Heading */}
@@ -121,8 +121,7 @@ const WorkWithMeHero = () => {
               }}
               className="mt-4 md:mt-6 text-[15px] md:text-base lg:text-lg text-[#475569] leading-[1.6] md:leading-relaxed"
             >
-              Everything I do is built on documented success, not theory. I don&apos;t just consult —
-              I build, own, and operate the companies behind the results.
+              Everything CRJR Ventures does is built on documented success — not theory. This isn&apos;t consulting from the sidelines; the work is backed by companies built, owned, and operated behind the results.
             </motion.p>
 
             {/* CTA Button */}

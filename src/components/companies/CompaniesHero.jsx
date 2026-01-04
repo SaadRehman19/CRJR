@@ -47,7 +47,7 @@ const CompaniesHero = () => {
             <motion.div variants={itemVariants} className="inline-flex items-center gap-2 mb-4 md:mb-6">
               <span className="w-2 h-2 bg-[#063482] rounded-full" />
               <span className="text-[13px] md:text-[14px] font-medium text-[#486581]">
-                CRJR Venture Partners
+                CRJR Ventures
               </span>
             </motion.div>
 

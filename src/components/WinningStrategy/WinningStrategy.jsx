@@ -129,9 +129,12 @@ const WinningStepCard = ({ step, index }) => {
 
 const WinningStrategy = () => {
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#E0F2FE] via-[#F0F9FF] to-white py-16 md:py-24 px-6 lg:px-20 overflow-hidden">
-      {/* Subtle gradient glow on the right */}
-      <div className="pointer-events-none absolute inset-y-0 right-[-10%] w-[300px] bg-gradient-to-b from-[#0EA5E9]/20 via-[#0EA5E9]/10 to-transparent blur-3xl opacity-80" />
+    <section className="relative w-full bg-gradient-to-b from-[#F0F9FF] via-[#EFF6FF] to-[#F8FAFC] py-16 md:py-24 px-6 lg:px-20 overflow-hidden">
+      {/* Left side gradient glow for first 3 tiles */}
+      <div className="pointer-events-none absolute top-[120px] md:top-[180px] left-[-100px] w-[400px] h-[500px] rounded-full bg-gradient-to-br from-[#1E3A8A]/40 via-[#1E40AF]/20 to-transparent blur-3xl opacity-70" />
+
+      {/* Right side gradient glow for last 3 tiles */}
+      <div className="pointer-events-none absolute bottom-[100px] md:bottom-[150px] right-[-100px] w-[400px] h-[500px] rounded-full bg-gradient-to-tl from-[#1E3A8A]/40 via-[#1E40AF]/20 to-transparent blur-3xl opacity-70" />
 
       <div className="relative max-w-[1216px] mx-auto">
         {/* Header */}
