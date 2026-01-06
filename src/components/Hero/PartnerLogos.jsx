@@ -6,7 +6,7 @@ import aunerLogo from '../../assets/auner-logo.png';
 
 const PartnerLogos = () => {
   const logos = [
-    { src: tmaLogo, alt: 'TMA', mobileHeight: 'h-[50px]', desktopHeight: 'md:h-[54px] lg:h-[58px]', width: 'w-[50px] md:w-[54px] lg:w-[58px]', extraClasses: 'rounded-[9px]' },
+    { src: tmaLogo, alt: 'TMA', mobileHeight: 'h-[50px]', desktopHeight: 'md:h-[54px] lg:h-[58px]', width: 'w-[50px] md:w-[54px] lg:w-[58px]', extraClasses: ' '},
     { src: mcmLogo, alt: 'MCM Nutrition', mobileHeight: 'h-[48px]', desktopHeight: 'md:h-[52px] lg:h-[56px]', width: '', extraClasses: '' },
     { src: crjrPartnersLogo, alt: 'CRJR Partners', mobileHeight: 'h-[45px]', desktopHeight: 'md:h-[48px] lg:h-[52px]', width: '', extraClasses: '' },
     { src: aunerLogo, alt: 'Auner Pet', mobileHeight: 'h-[68px]', desktopHeight: 'md:h-[66px] lg:h-[78px]', width: '', extraClasses: '' },

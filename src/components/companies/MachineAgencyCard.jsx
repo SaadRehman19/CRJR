@@ -68,7 +68,7 @@ const MachineAgencyCard = () => {
         {/* Left Column - Header & Stats (Dark Background) */}
         <div className="bg-[#102a43] p-6 md:p-8 lg:w-[45%] flex flex-col rounded-t-[16px] md:rounded-t-[24px] lg:rounded-l-[24px] lg:rounded-tr-none">
           {/* Logo Box - aligned with text below */}
-          <div className="w-[50px] h-[50px] md:w-[54px] md:h-[54px] lg:w-[58px] lg:h-[58px] rounded-[9px] flex items-center justify-center overflow-hidden mb-5 md:mb-6 bg-black">
+          <div className="w-[50px] h-[50px] md:w-[54px] md:h-[54px] lg:w-[58px] lg:h-[58px] flex items-center justify-center overflow-hidden mb-5 md:mb-6 bg-black">
             <img
               src={tmaLogo}
               alt="The Machine Agency Logo"
