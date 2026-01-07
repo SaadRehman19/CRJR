@@ -1,4 +1,4 @@
-import whoIAmImage from '../../assets/who-i-am-figma.png';
+import whoIAmImage from '../../assets/p.svg';
 import { motion } from 'framer-motion';
 
 const bulletPoints = [
@@ -35,23 +35,23 @@ const WhoIAm = () => {
           >
             {/* Decorative Corner - Top Left */}
             <div
-              className="absolute -top-2 -left-2 lg:-top-4 lg:-left-4 w-[60px] h-[60px] lg:w-[96px] lg:h-[96px] border-t-4 border-l-4 border-[#063482] z-20 rounded-tl-[16px] lg:rounded-tl-[24px]"
+              className="absolute -top-2 -left-2 lg:-top-4 lg:-left-4 w-[60px] h-[60px] lg:w-[96px] lg:h-[96px] border-t-4 border-l-4 border-[#063482] z-20 rounded-tl-[24px] lg:rounded-tl-[32px]"
             ></div>
 
             {/* Decorative Corner - Bottom Right */}
             <div
-              className="absolute -bottom-2 -right-2 lg:-bottom-4 lg:-right-4 w-[60px] h-[60px] lg:w-[96px] lg:h-[96px] border-b-4 border-r-4 border-[#063482] z-20 rounded-br-[16px] lg:rounded-br-[24px]"
+              className="absolute -bottom-2 -right-2 lg:-bottom-4 lg:-right-4 w-[60px] h-[60px] lg:w-[96px] lg:h-[96px] border-b-4 border-r-4 border-[#063482] z-20 rounded-br-[24px] lg:rounded-br-[32px]"
             ></div>
 
             {/* Image Container */}
             <div
-              className="relative w-full h-full rounded-[12px] lg:rounded-[16px] overflow-hidden shadow-[0px_15px_30px_0px_rgba(0,0,0,0.2)] lg:shadow-[0px_25px_50px_0px_rgba(0,0,0,0.25)]"
+              className="relative w-full h-full rounded-[20px] lg:rounded-[24px] overflow-hidden shadow-[0px_15px_30px_0px_rgba(0,0,0,0.2)] lg:shadow-[0px_25px_50px_0px_rgba(0,0,0,0.25)]"
             >
               {/* Main Image from Figma */}
               <img
                 src={whoIAmImage}
                 alt="Cash Riley Jr."
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover scale-[1.15] object-[center_35%]"
               />
             </div>
           </motion.div>
